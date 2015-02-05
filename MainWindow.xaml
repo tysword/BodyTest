@@ -1,0 +1,600 @@
+﻿<Window x:Class="Microsoft.Samples.Kinect.BodyBasics.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="客户测量" 
+        Width="600"
+        Height="531"
+        Loaded="MainWindow_Loaded"
+        Closing="MainWindow_Closing">
+    <Window.Resources>
+        <SolidColorBrush x:Key="MediumGreyBrush" Color="#ff6e6e6e" />
+        <SolidColorBrush x:Key="KinectPurpleBrush" Color="#ff52318f" />
+        <SolidColorBrush x:Key="KinectBlueBrush" Color="#ff00BCF2" />
+
+    </Window.Resources>
+    <Grid Margin="10 0 10 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="0 10 0 0 ">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"  />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="149*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="148*"/>
+                <ColumnDefinition Width="34*"/>
+                <ColumnDefinition Width="149*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="ID" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right"/>
+            <TextBox Name="txtID" Grid.Row="0" Grid.Column="1"  Margin="5"/>
+            <Label Content="姓名" Grid.Row="0" Grid.Column="2"  HorizontalAlignment="Right"/>
+            <TextBox Name="txtName" Grid.Row="0" Grid.Column="3" Margin="5"/>
+            <Label Content="性别" Grid.Row="0" Grid.Column="4"  HorizontalAlignment="Right"/>
+            <TextBox Name="txtSex" Grid.Row="0" Grid.Column="5" Margin="5"/>
+            <Label Content="人种" Grid.Row="1" Grid.Column="0"  HorizontalAlignment="Right"/>
+            <TextBox Name="txtRace"  Grid.Row="1" Grid.Column="1" Margin="5"/>
+            <Label   Content="身高" Grid.Row="1" Grid.Column="2"  HorizontalAlignment="Right"/>
+            <TextBox Name="txtHeight" Grid.Row="1" Grid.Column="3" Margin="5"/>
+            <Label  Content="体重" Grid.Row="1" Grid.Column="4"  HorizontalAlignment="Right"/>
+            <TextBox Name="txtWeight" Grid.Row="1" Grid.Column="5" Margin="5"/>
+            <Label Content="出生日期" Grid.Row="2" Grid.Column="0" />
+            <TextBox Name="txtBirthday"  Grid.Row="2" Grid.Column="1" Margin="5"/>
+            <Label Content="年龄" Grid.Row="2" Grid.Column="2" />
+            <TextBox  Name="txtAge" Text="" Grid.Row="2" Grid.Column="3" Margin="5"/>
+            <Button Content="完成测试"  Background="Green" Grid.Row="2" Grid.Column="5" Foreground="White" FontSize="14" Margin="5" Click="Button_Finish_Click" />
+        </Grid>
+
+
+        <WrapPanel Name="wpExamType"  Grid.Row="1">
+            <!--
+            <Button  Name="btn1" Content="正向站立" Click="startExam" Background="Green"/>
+            <Button  Name="btn2" Content="侧向站立" Click="startExam" />
+            <Button  Name="btn3" Content="双手前平举" Click="startExam" />
+            <Button  Name="btn4" Content="双手侧平举" Click="startExam" />
+            <Button  Name="btn5" Content="慢蹲慢起" Click="startExam"/>
+            <Button  Name="btn6" Content="侧平举" Click="startExam" />
+            <Button  Name="btn7" Content="左侧大字站" Click="startExam" />
+            <Button  Name="btn8" Content="右侧大字站" Click="startExam" />
+             -->
+        </WrapPanel>
+
+
+        <Viewbox Grid.Row="2" HorizontalAlignment="Center" Margin="0 5 0 5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Name="camera" Width="1920" Height="1080" Source="{Binding ImageSource}"/>
+                <Canvas Grid.Row="0" Name="canvas" Width="1920" Height="1080" />
+            </Grid>
+
+        </Viewbox>
+
+        <WrapPanel HorizontalAlignment="Center" Grid.Row="3">
+            <Button Name="btnStartExam"  Content="开始测量" Click="Button_Click" Visibility="Hidden" Margin="5"/>
+            <Button Name="btnEndExam"    Content="完成测量" Click="Button_Click" Visibility="Hidden" Margin="5"/>
+        </WrapPanel>
+
+        <!--<Grid  Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+         
+        <Grid Grid.Column="1" HorizontalAlignment="Right"  Height="auto"  VerticalAlignment="Top" Width="486" Margin="0,0,10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row ="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="240"/>
+                        <ColumnDefinition Width="240"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="HeadC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="Head" Content="头" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="HeadX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="HeadY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="HeadZ" Content="z" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+
+                        <CheckBox Grid.Column="0" Name="neckC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="Neck" Content="颈" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="NeckX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="NeckY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="NeckZ" Content="z" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Grid>
+            
+                <Grid Grid.Row ="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="240"/>
+                        <ColumnDefinition Width="240"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="SpineShoulderC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="SpineShoulder" Content="肩脊" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="SpineShoulderX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="SpineShoulderY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="SpineShoulderZ" Content="z" HorizontalAlignment="Center"/>
+
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="SpineMidC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="SpineMid" Content="脊中" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="SpineMidX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="SpineMidY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="SpineMidZ" Content="z" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Grid>
+
+
+                <Grid Grid.Row ="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="240"/>
+                        <ColumnDefinition Width="240"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="SpineBaseC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="SpineBase" Content="脊尾" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="SpineBaseX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="SpineBaseY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="SpineBaseZ" Content="z" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+
+                    </Grid>
+                </Grid>
+
+
+                <Grid Grid.Row ="3">
+                    <Label></Label>
+                </Grid>
+
+
+
+                <Grid Grid.Row ="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="240"/>
+                        <ColumnDefinition Width="240"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="ShoulderLeftC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="ShoulderLeft" Content="左肩" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="ShoulderLeftX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="ShoulderLeftY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="ShoulderLeftZ" Content="z" HorizontalAlignment="Center"/>
+
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="ElbowLeftC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="ElbowLeft" Content="左肘" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="ElbowLeftX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="ElbowLeftY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="ElbowLeftZ" Content="z" HorizontalAlignment="Center"/>
+
+                    </Grid>
+                </Grid>
+
+
+                <Grid Grid.Row ="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="240"/>
+                        <ColumnDefinition Width="240"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="WristLeftC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="WristLeft" Content="左腕" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="WristLeftX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="WristLeftY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="WristLeftZ" Content="z" HorizontalAlignment="Center"/>
+
+
+
+
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="HandLeftC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="HandLeft" Content="左手" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="HandLeftX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="HandLeftY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="HandLeftZ" Content="z" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row ="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="240"/>
+                        <ColumnDefinition Width="240"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="HandTipLeftC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="HandTipLeft" Content="左手尖" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="HandTipLeftX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="HandTipLeftY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="HandTipLeftZ" Content="z" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="ThumbLeftC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="ThumbLeft" Content="左拇指" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="ThumbLeftX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="ThumbLeftY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="ThumbLeftZ" Content="z" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row ="7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="240"/>
+                        <ColumnDefinition Width="240"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="HipLeftC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="HipLeft" Content="左臀" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="HipLeftX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="HipLeftY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="HipLeftZ" Content="z" HorizontalAlignment="Center"/>
+
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="KneeLeftC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="KneeLeft" Content="左膝" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="KneeLeftX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="KneeLeftY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="KneeLeftZ" Content="z" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row ="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="240"/>
+                        <ColumnDefinition Width="240"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="AnkleLeftC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="AnkleLeft" Content="左踝" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="AnkleLeftX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="AnkleLeftY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="AnkleLeftZ" Content="z" HorizontalAlignment="Center"/>
+
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="FootLeftC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="FootLeft" Content="左脚" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="FootLeftX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="FootLeftY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="FootLeftZ" Content="z" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row ="9">
+                    <Label></Label>
+                </Grid>
+
+                <Grid Grid.Row ="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="240"/>
+                        <ColumnDefinition Width="240"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="SchoulderC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="ShoulderRight" Content="右肩" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="ShoulderRightX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="ShoulderRightY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="ShoulderRightZ" Content="z" HorizontalAlignment="Center"/>
+
+
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="ElbowRightC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="ElbowRight" Content="右肘" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="ElbowRightX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="ElbowRightY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="ElbowRightZ" Content="z" HorizontalAlignment="Center"/>
+
+
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row ="11">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="240"/>
+                        <ColumnDefinition Width="240"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="WristRightC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="WristRight" Content="右腕" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="WristRightX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="WristRightY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="WristRightZ" Content="z" HorizontalAlignment="Center"/>
+
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="HandRightC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="HandRight" Content="右手" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="HandRightX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="HandRightY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="HandRightZ" Content="z" HorizontalAlignment="Center"/>
+
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row ="12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="240"/>
+                        <ColumnDefinition Width="240"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="HandTipRightC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="HandTipRight" Content="右手尖" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="HandTipRightX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="HandTipRightY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="HandTipRightZ" Content="z" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="ThumbRightC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="ThumbRight" Content="右拇指" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="ThumbRightX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="ThumbRightY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="ThumbRightZ" Content="z" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row ="13">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="240"/>
+                        <ColumnDefinition Width="240"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="HipRightXC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="HipRight" Content="右臀" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="HipRightX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="HipRightY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="HipRightZ" Content="z" HorizontalAlignment="Center"/>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="KneeRightC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="KneeRight" Content="右膝" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="KneeRightX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="KneeRightY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="KneeRightZ" Content="z" HorizontalAlignment="Center"/>
+                    </Grid>
+
+                </Grid>
+            
+                <Grid Grid.Row ="14">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="240"/>
+                        <ColumnDefinition Width="240"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="AnkleRightC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="AnkleRight" Content="右踝" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="AnkleRightX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="AnkleRightY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="AnkleRightZ" Content="z" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Name="FootRightC" IsChecked="True" HorizontalAlignment="Left" />
+                        <Label  Grid.Column="0"  Name="FootRight" Content="右脚" HorizontalAlignment="Right"/>
+                        <Label  Grid.Column="1"  Name="FootRightX" Content="x" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="2"  Name="FootRightY" Content="y" HorizontalAlignment="Center"/>
+                        <Label  Grid.Column="3"  Name="FootRightZ" Content="z" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row ="15">
+                    <Button Name="staticExam" Content="完成测量" Grid.Column="1" HorizontalAlignment="Center" Height="26"  Click="Button_Click" Visibility="Hidden"/>
+                    <Button Name="startExam" Content="开始测量" Grid.Column="1" HorizontalAlignment="Center" Height="26"  Click="Button_Click" Visibility="Hidden"/>
+                    <Button Name="endExam" Content="完成测量" Grid.Column="1" HorizontalAlignment="Right" Height="26"  Click="Button_Click" Visibility="Hidden"/>
+                </Grid>
+            </Grid>
+        </Grid>
+        -->
+        <StatusBar Grid.Row="4" HorizontalAlignment="Stretch" Name="statusBar" VerticalAlignment="Bottom" Background="White" Foreground="{StaticResource MediumGreyBrush}">
+            <StatusBarItem Content="{Binding StatusText}" />
+        </StatusBar>
+    </Grid>
+</Window>

@@ -1,0 +1,513 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="jointexamModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tab_exam">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="person_id" Type="int" Nullable="false" />
+          <Property Name="exam_age" Type="int" />
+          <Property Name="exam_date" Type="timestamp" Precision="0" />
+          <Property Name="operater" Type="varchar" MaxLength="100" />
+          <Property Name="finish_flag" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="tab_exam_record">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="exam_type_id" Type="int" Nullable="false" />
+          <Property Name="exam_id" Type="int" Nullable="false" />
+          <Property Name="exam_time" Type="timestamp" Precision="0" />
+          <Property Name="exam_snapshot_path" Type="varchar" MaxLength="100" />
+          <Property Name="SpineBaseX" Type="double" />
+          <Property Name="SpineBaseY" Type="double" />
+          <Property Name="SpineBaseZ" Type="double" />
+          <Property Name="SpineMidX" Type="double" />
+          <Property Name="SpineMidY" Type="double" />
+          <Property Name="SpineMidZ" Type="double" />
+          <Property Name="NeckX" Type="double" />
+          <Property Name="NeckY" Type="double" />
+          <Property Name="NeckZ" Type="double" />
+          <Property Name="HeadX" Type="double" />
+          <Property Name="HeadY" Type="double" />
+          <Property Name="HeadZ" Type="double" />
+          <Property Name="SpineShoulderX" Type="double" />
+          <Property Name="SpineShoulderY" Type="double" />
+          <Property Name="SpineShoulderZ" Type="double" />
+          <Property Name="ShoulderLeftX" Type="double" />
+          <Property Name="ShoulderLeftY" Type="double" />
+          <Property Name="ShoulderLeftZ" Type="double" />
+          <Property Name="ElbowLeftX" Type="double" />
+          <Property Name="ElbowLeftY" Type="double" />
+          <Property Name="ElbowLeftZ" Type="double" />
+          <Property Name="WristLeftX" Type="double" />
+          <Property Name="WristLeftY" Type="double" />
+          <Property Name="WristLeftZ" Type="double" />
+          <Property Name="HandLeftX" Type="double" />
+          <Property Name="HandLeftY" Type="double" />
+          <Property Name="HandLeftZ" Type="double" />
+          <Property Name="HipLeftX" Type="double" />
+          <Property Name="HipLeftY" Type="double" />
+          <Property Name="HipLeftZ" Type="double" />
+          <Property Name="KneeLeftX" Type="double" />
+          <Property Name="KneeLeftY" Type="double" />
+          <Property Name="KneeLeftZ" Type="double" />
+          <Property Name="AnkleLeftX" Type="double" />
+          <Property Name="AnkleLeftY" Type="double" />
+          <Property Name="AnkleLeftZ" Type="double" />
+          <Property Name="FootLeftX" Type="double" />
+          <Property Name="FootLeftY" Type="double" />
+          <Property Name="FootLeftZ" Type="double" />
+          <Property Name="HandTipLeftX" Type="double" />
+          <Property Name="HandTipLeftY" Type="double" />
+          <Property Name="HandTipLeftZ" Type="double" />
+          <Property Name="ThumbLeftX" Type="double" />
+          <Property Name="ThumbLeftY" Type="double" />
+          <Property Name="ThumbLeftZ" Type="double" />
+          <Property Name="ShoulderRightX" Type="double" />
+          <Property Name="ShoulderRightY" Type="double" />
+          <Property Name="ShoulderRightZ" Type="double" />
+          <Property Name="ElbowRightX" Type="double" />
+          <Property Name="ElbowRightY" Type="double" />
+          <Property Name="ElbowRightZ" Type="double" />
+          <Property Name="WristRightX" Type="double" />
+          <Property Name="WristRightY" Type="double" />
+          <Property Name="WristRightZ" Type="double" />
+          <Property Name="HandRightX" Type="double" />
+          <Property Name="HandRightY" Type="double" />
+          <Property Name="HandRightZ" Type="double" />
+          <Property Name="HipRightX" Type="double" />
+          <Property Name="HipRightY" Type="double" />
+          <Property Name="HipRightZ" Type="double" />
+          <Property Name="KneeRightX" Type="double" />
+          <Property Name="KneeRightY" Type="double" />
+          <Property Name="KneeRightZ" Type="double" />
+          <Property Name="AnkleRightX" Type="double" />
+          <Property Name="AnkleRightY" Type="double" />
+          <Property Name="AnkleRightZ" Type="double" />
+          <Property Name="FootRightX" Type="double" />
+          <Property Name="FootRightY" Type="double" />
+          <Property Name="FootRightZ" Type="double" />
+          <Property Name="HandTipRightX" Type="double" />
+          <Property Name="HandTipRightY" Type="double" />
+          <Property Name="HandTipRightZ" Type="double" />
+          <Property Name="ThumbRightX" Type="double" />
+          <Property Name="ThumbRightY" Type="double" />
+          <Property Name="ThumbRightZ" Type="double" />
+        </EntityType>
+        <EntityType Name="tab_exam_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="desc" Type="varchar" MaxLength="500" />
+          <Property Name="order" Type="int" Nullable="false" />
+          <Property Name="style" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tab_person">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="sex" Type="varchar" MaxLength="1" />
+          <Property Name="birthday" Type="date" />
+          <Property Name="race" Type="varchar" MaxLength="10" />
+          <Property Name="height" Type="float" />
+          <Property Name="weight" Type="float" />
+        </EntityType>
+        <Association Name="exam2person">
+          <End Role="tab_person" Type="Self.tab_person" Multiplicity="1" />
+          <End Role="tab_exam" Type="Self.tab_exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tab_person">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tab_exam">
+              <PropertyRef Name="person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="record2exam">
+          <End Role="tab_exam" Type="Self.tab_exam" Multiplicity="1" />
+          <End Role="tab_exam_record" Type="Self.tab_exam_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tab_exam">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tab_exam_record">
+              <PropertyRef Name="exam_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="record2type">
+          <End Role="tab_exam_type" Type="Self.tab_exam_type" Multiplicity="1" />
+          <End Role="tab_exam_record" Type="Self.tab_exam_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tab_exam_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tab_exam_record">
+              <PropertyRef Name="exam_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="jointexamModelStoreContainer">
+          <EntitySet Name="tab_exam" EntityType="Self.tab_exam" Schema="jointexam" store:Type="Tables" />
+          <EntitySet Name="tab_exam_record" EntityType="Self.tab_exam_record" Schema="jointexam" store:Type="Tables" />
+          <EntitySet Name="tab_exam_type" EntityType="Self.tab_exam_type" Schema="jointexam" store:Type="Tables" />
+          <EntitySet Name="tab_person" EntityType="Self.tab_person" Schema="jointexam" store:Type="Tables" />
+          <AssociationSet Name="exam2person" Association="Self.exam2person">
+            <End Role="tab_person" EntitySet="tab_person" />
+            <End Role="tab_exam" EntitySet="tab_exam" />
+          </AssociationSet>
+          <AssociationSet Name="record2exam" Association="Self.record2exam">
+            <End Role="tab_exam" EntitySet="tab_exam" />
+            <End Role="tab_exam_record" EntitySet="tab_exam_record" />
+          </AssociationSet>
+          <AssociationSet Name="record2type" Association="Self.record2type">
+            <End Role="tab_exam_type" EntitySet="tab_exam_type" />
+            <End Role="tab_exam_record" EntitySet="tab_exam_record" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="jointexamModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tab_exam">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="person_id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="exam_date" Type="DateTime" />
+          <Property Name="operater" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tab_person" Relationship="Self.exam2person" FromRole="tab_exam" ToRole="tab_person" />
+          <NavigationProperty Name="tab_exam_record" Relationship="Self.record2exam" FromRole="tab_exam" ToRole="tab_exam_record" />
+          <Property Name="exam_age" Type="Int32" />
+          <Property Name="finish_flag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tab_exam_record">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="exam_type_id" Type="Int32" Nullable="false" />
+          <Property Name="exam_id" Type="Int32" Nullable="false" />
+          <Property Name="SpineBaseX" Type="Double" />
+          <Property Name="SpineBaseY" Type="Double" />
+          <Property Name="SpineBaseZ" Type="Double" />
+          <Property Name="SpineMidX" Type="Double" />
+          <Property Name="SpineMidY" Type="Double" />
+          <Property Name="SpineMidZ" Type="Double" />
+          <Property Name="NeckX" Type="Double" />
+          <Property Name="NeckY" Type="Double" />
+          <Property Name="NeckZ" Type="Double" />
+          <Property Name="HeadX" Type="Double" />
+          <Property Name="HeadY" Type="Double" />
+          <Property Name="HeadZ" Type="Double" />
+          <Property Name="SpineShoulderX" Type="Double" />
+          <Property Name="SpineShoulderY" Type="Double" />
+          <Property Name="SpineShoulderZ" Type="Double" />
+          <Property Name="ShoulderLeftX" Type="Double" />
+          <Property Name="ShoulderLeftY" Type="Double" />
+          <Property Name="ShoulderLeftZ" Type="Double" />
+          <Property Name="ElbowLeftX" Type="Double" />
+          <Property Name="ElbowLeftY" Type="Double" />
+          <Property Name="ElbowLeftZ" Type="Double" />
+          <Property Name="WristLeftX" Type="Double" />
+          <Property Name="WristLeftY" Type="Double" />
+          <Property Name="WristLeftZ" Type="Double" />
+          <Property Name="HandLeftX" Type="Double" />
+          <Property Name="HandLeftY" Type="Double" />
+          <Property Name="HandLeftZ" Type="Double" />
+          <Property Name="HipLeftX" Type="Double" />
+          <Property Name="HipLeftY" Type="Double" />
+          <Property Name="HipLeftZ" Type="Double" />
+          <Property Name="KneeLeftX" Type="Double" />
+          <Property Name="KneeLeftY" Type="Double" />
+          <Property Name="KneeLeftZ" Type="Double" />
+          <Property Name="AnkleLeftX" Type="Double" />
+          <Property Name="AnkleLeftY" Type="Double" />
+          <Property Name="AnkleLeftZ" Type="Double" />
+          <Property Name="FootLeftX" Type="Double" />
+          <Property Name="FootLeftY" Type="Double" />
+          <Property Name="FootLeftZ" Type="Double" />
+          <Property Name="HandTipLeftX" Type="Double" />
+          <Property Name="HandTipLeftY" Type="Double" />
+          <Property Name="HandTipLeftZ" Type="Double" />
+          <Property Name="ThumbLeftX" Type="Double" />
+          <Property Name="ThumbLeftY" Type="Double" />
+          <Property Name="ThumbLeftZ" Type="Double" />
+          <Property Name="ShoulderRightX" Type="Double" />
+          <Property Name="ShoulderRightY" Type="Double" />
+          <Property Name="ShoulderRightZ" Type="Double" />
+          <Property Name="ElbowRightX" Type="Double" />
+          <Property Name="ElbowRightY" Type="Double" />
+          <Property Name="ElbowRightZ" Type="Double" />
+          <Property Name="WristRightX" Type="Double" />
+          <Property Name="WristRightY" Type="Double" />
+          <Property Name="WristRightZ" Type="Double" />
+          <Property Name="HandRightX" Type="Double" />
+          <Property Name="HandRightY" Type="Double" />
+          <Property Name="HandRightZ" Type="Double" />
+          <Property Name="HipRightX" Type="Double" />
+          <Property Name="HipRightY" Type="Double" />
+          <Property Name="HipRightZ" Type="Double" />
+          <Property Name="KneeRightX" Type="Double" />
+          <Property Name="KneeRightY" Type="Double" />
+          <Property Name="KneeRightZ" Type="Double" />
+          <Property Name="AnkleRightX" Type="Double" />
+          <Property Name="AnkleRightY" Type="Double" />
+          <Property Name="AnkleRightZ" Type="Double" />
+          <Property Name="FootRightX" Type="Double" />
+          <Property Name="FootRightY" Type="Double" />
+          <Property Name="FootRightZ" Type="Double" />
+          <Property Name="HandTipRightX" Type="Double" />
+          <Property Name="HandTipRightY" Type="Double" />
+          <Property Name="HandTipRightZ" Type="Double" />
+          <Property Name="ThumbRightX" Type="Double" />
+          <Property Name="ThumbRightY" Type="Double" />
+          <Property Name="ThumbRightZ" Type="Double" />
+          <NavigationProperty Name="tab_exam" Relationship="Self.record2exam" FromRole="tab_exam_record" ToRole="tab_exam" />
+          <NavigationProperty Name="tab_exam_type" Relationship="Self.record2type" FromRole="tab_exam_record" ToRole="tab_exam_type" />
+          <Property Name="exam_time" Type="DateTime" />
+          <Property Name="exam_snapshot_path" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tab_exam_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="desc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="order" Type="Int32" Nullable="false" />
+          <Property Name="style" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tab_exam_record" Relationship="Self.record2type" FromRole="tab_exam_type" ToRole="tab_exam_record" />
+        </EntityType>
+        <EntityType Name="tab_person">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sex" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="birthday" Type="DateTime" />
+          <Property Name="race" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="height" Type="Single" />
+          <Property Name="weight" Type="Single" />
+          <NavigationProperty Name="tab_exam" Relationship="Self.exam2person" FromRole="tab_person" ToRole="tab_exam" />
+        </EntityType>
+        <Association Name="exam2person">
+          <End Role="tab_person" Type="Self.tab_person" Multiplicity="1" />
+          <End Role="tab_exam" Type="Self.tab_exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tab_person">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tab_exam">
+              <PropertyRef Name="person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="record2exam">
+          <End Role="tab_exam" Type="Self.tab_exam" Multiplicity="1" />
+          <End Role="tab_exam_record" Type="Self.tab_exam_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tab_exam">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tab_exam_record">
+              <PropertyRef Name="exam_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="record2type">
+          <End Role="tab_exam_type" Type="Self.tab_exam_type" Multiplicity="1" />
+          <End Role="tab_exam_record" Type="Self.tab_exam_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tab_exam_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tab_exam_record">
+              <PropertyRef Name="exam_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="jointexamEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tab_exam" EntityType="Self.tab_exam" />
+          <EntitySet Name="tab_exam_record" EntityType="Self.tab_exam_record" />
+          <EntitySet Name="tab_exam_type" EntityType="Self.tab_exam_type" />
+          <EntitySet Name="tab_person" EntityType="Self.tab_person" />
+          <AssociationSet Name="exam2person" Association="Self.exam2person">
+            <End Role="tab_person" EntitySet="tab_person" />
+            <End Role="tab_exam" EntitySet="tab_exam" />
+          </AssociationSet>
+          <AssociationSet Name="record2exam" Association="Self.record2exam">
+            <End Role="tab_exam" EntitySet="tab_exam" />
+            <End Role="tab_exam_record" EntitySet="tab_exam_record" />
+          </AssociationSet>
+          <AssociationSet Name="record2type" Association="Self.record2type">
+            <End Role="tab_exam_type" EntitySet="tab_exam_type" />
+            <End Role="tab_exam_record" EntitySet="tab_exam_record" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="jointexamModelStoreContainer" CdmEntityContainer="jointexamEntities">
+          <EntitySetMapping Name="tab_exam">
+            <EntityTypeMapping TypeName="jointexamModel.tab_exam">
+              <MappingFragment StoreEntitySet="tab_exam">
+                <ScalarProperty Name="finish_flag" ColumnName="finish_flag" />
+                <ScalarProperty Name="exam_age" ColumnName="exam_age" />
+                <ScalarProperty Name="person_id" ColumnName="person_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="exam_date" ColumnName="exam_date" />
+                <ScalarProperty Name="operater" ColumnName="operater" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tab_exam_record">
+            <EntityTypeMapping TypeName="jointexamModel.tab_exam_record">
+              <MappingFragment StoreEntitySet="tab_exam_record">
+                <ScalarProperty Name="exam_snapshot_path" ColumnName="exam_snapshot_path" />
+                <ScalarProperty Name="exam_time" ColumnName="exam_time" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="exam_type_id" ColumnName="exam_type_id" />
+                <ScalarProperty Name="exam_id" ColumnName="exam_id" />
+                <ScalarProperty Name="SpineBaseX" ColumnName="SpineBaseX" />
+                <ScalarProperty Name="SpineBaseY" ColumnName="SpineBaseY" />
+                <ScalarProperty Name="SpineBaseZ" ColumnName="SpineBaseZ" />
+                <ScalarProperty Name="SpineMidX" ColumnName="SpineMidX" />
+                <ScalarProperty Name="SpineMidY" ColumnName="SpineMidY" />
+                <ScalarProperty Name="SpineMidZ" ColumnName="SpineMidZ" />
+                <ScalarProperty Name="NeckX" ColumnName="NeckX" />
+                <ScalarProperty Name="NeckY" ColumnName="NeckY" />
+                <ScalarProperty Name="NeckZ" ColumnName="NeckZ" />
+                <ScalarProperty Name="HeadX" ColumnName="HeadX" />
+                <ScalarProperty Name="HeadY" ColumnName="HeadY" />
+                <ScalarProperty Name="HeadZ" ColumnName="HeadZ" />
+                <ScalarProperty Name="SpineShoulderX" ColumnName="SpineShoulderX" />
+                <ScalarProperty Name="SpineShoulderY" ColumnName="SpineShoulderY" />
+                <ScalarProperty Name="SpineShoulderZ" ColumnName="SpineShoulderZ" />
+                <ScalarProperty Name="ShoulderLeftX" ColumnName="ShoulderLeftX" />
+                <ScalarProperty Name="ShoulderLeftY" ColumnName="ShoulderLeftY" />
+                <ScalarProperty Name="ShoulderLeftZ" ColumnName="ShoulderLeftZ" />
+                <ScalarProperty Name="ElbowLeftX" ColumnName="ElbowLeftX" />
+                <ScalarProperty Name="ElbowLeftY" ColumnName="ElbowLeftY" />
+                <ScalarProperty Name="ElbowLeftZ" ColumnName="ElbowLeftZ" />
+                <ScalarProperty Name="WristLeftX" ColumnName="WristLeftX" />
+                <ScalarProperty Name="WristLeftY" ColumnName="WristLeftY" />
+                <ScalarProperty Name="WristLeftZ" ColumnName="WristLeftZ" />
+                <ScalarProperty Name="HandLeftX" ColumnName="HandLeftX" />
+                <ScalarProperty Name="HandLeftY" ColumnName="HandLeftY" />
+                <ScalarProperty Name="HandLeftZ" ColumnName="HandLeftZ" />
+                <ScalarProperty Name="HipLeftX" ColumnName="HipLeftX" />
+                <ScalarProperty Name="HipLeftY" ColumnName="HipLeftY" />
+                <ScalarProperty Name="HipLeftZ" ColumnName="HipLeftZ" />
+                <ScalarProperty Name="KneeLeftX" ColumnName="KneeLeftX" />
+                <ScalarProperty Name="KneeLeftY" ColumnName="KneeLeftY" />
+                <ScalarProperty Name="KneeLeftZ" ColumnName="KneeLeftZ" />
+                <ScalarProperty Name="AnkleLeftX" ColumnName="AnkleLeftX" />
+                <ScalarProperty Name="AnkleLeftY" ColumnName="AnkleLeftY" />
+                <ScalarProperty Name="AnkleLeftZ" ColumnName="AnkleLeftZ" />
+                <ScalarProperty Name="FootLeftX" ColumnName="FootLeftX" />
+                <ScalarProperty Name="FootLeftY" ColumnName="FootLeftY" />
+                <ScalarProperty Name="FootLeftZ" ColumnName="FootLeftZ" />
+                <ScalarProperty Name="HandTipLeftX" ColumnName="HandTipLeftX" />
+                <ScalarProperty Name="HandTipLeftY" ColumnName="HandTipLeftY" />
+                <ScalarProperty Name="HandTipLeftZ" ColumnName="HandTipLeftZ" />
+                <ScalarProperty Name="ThumbLeftX" ColumnName="ThumbLeftX" />
+                <ScalarProperty Name="ThumbLeftY" ColumnName="ThumbLeftY" />
+                <ScalarProperty Name="ThumbLeftZ" ColumnName="ThumbLeftZ" />
+                <ScalarProperty Name="ShoulderRightX" ColumnName="ShoulderRightX" />
+                <ScalarProperty Name="ShoulderRightY" ColumnName="ShoulderRightY" />
+                <ScalarProperty Name="ShoulderRightZ" ColumnName="ShoulderRightZ" />
+                <ScalarProperty Name="ElbowRightX" ColumnName="ElbowRightX" />
+                <ScalarProperty Name="ElbowRightY" ColumnName="ElbowRightY" />
+                <ScalarProperty Name="ElbowRightZ" ColumnName="ElbowRightZ" />
+                <ScalarProperty Name="WristRightX" ColumnName="WristRightX" />
+                <ScalarProperty Name="WristRightY" ColumnName="WristRightY" />
+                <ScalarProperty Name="WristRightZ" ColumnName="WristRightZ" />
+                <ScalarProperty Name="HandRightX" ColumnName="HandRightX" />
+                <ScalarProperty Name="HandRightY" ColumnName="HandRightY" />
+                <ScalarProperty Name="HandRightZ" ColumnName="HandRightZ" />
+                <ScalarProperty Name="HipRightX" ColumnName="HipRightX" />
+                <ScalarProperty Name="HipRightY" ColumnName="HipRightY" />
+                <ScalarProperty Name="HipRightZ" ColumnName="HipRightZ" />
+                <ScalarProperty Name="KneeRightX" ColumnName="KneeRightX" />
+                <ScalarProperty Name="KneeRightY" ColumnName="KneeRightY" />
+                <ScalarProperty Name="KneeRightZ" ColumnName="KneeRightZ" />
+                <ScalarProperty Name="AnkleRightX" ColumnName="AnkleRightX" />
+                <ScalarProperty Name="AnkleRightY" ColumnName="AnkleRightY" />
+                <ScalarProperty Name="AnkleRightZ" ColumnName="AnkleRightZ" />
+                <ScalarProperty Name="FootRightX" ColumnName="FootRightX" />
+                <ScalarProperty Name="FootRightY" ColumnName="FootRightY" />
+                <ScalarProperty Name="FootRightZ" ColumnName="FootRightZ" />
+                <ScalarProperty Name="HandTipRightX" ColumnName="HandTipRightX" />
+                <ScalarProperty Name="HandTipRightY" ColumnName="HandTipRightY" />
+                <ScalarProperty Name="HandTipRightZ" ColumnName="HandTipRightZ" />
+                <ScalarProperty Name="ThumbRightX" ColumnName="ThumbRightX" />
+                <ScalarProperty Name="ThumbRightY" ColumnName="ThumbRightY" />
+                <ScalarProperty Name="ThumbRightZ" ColumnName="ThumbRightZ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tab_exam_type">
+            <EntityTypeMapping TypeName="jointexamModel.tab_exam_type">
+              <MappingFragment StoreEntitySet="tab_exam_type">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="desc" ColumnName="desc" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="style" ColumnName="style" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tab_person">
+            <EntityTypeMapping TypeName="jointexamModel.tab_person">
+              <MappingFragment StoreEntitySet="tab_person">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="birthday" ColumnName="birthday" />
+                <ScalarProperty Name="race" ColumnName="race" />
+                <ScalarProperty Name="height" ColumnName="height" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
