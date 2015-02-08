@@ -96,6 +96,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="JointCaculater.cs" />
     <Compile Include="JointExam.xaml.cs">
       <DependentUpon>JointExam.xaml</DependentUpon>
     </Compile>

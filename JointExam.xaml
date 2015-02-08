@@ -163,14 +163,20 @@
                             <Button Name="btnStartNew" Content="新的检查" Grid.Row="2" Grid.Column="5" Margin="5" IsEnabled="False" Click="btnStartNew_Click"/>
                         </Grid>
                     </GroupBox>
-                    <DataGrid Name="dgExam" Grid.Row="2" Grid.Column="2" Grid.RowSpan="2"  Margin="2" IsReadOnly="True" AutoGenerateColumns="False" MouseDoubleClick="dgExam_MouseDoubleClick">
+                    <DataGrid Name="dgExam" Grid.Row="2" Grid.Column="2" Grid.RowSpan="2"  Margin="2" IsReadOnly="True" AutoGenerateColumns="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="检查日期" Width="65" Binding="{Binding exam_date}"/>
                             <DataGridTextColumn Header="检查ID" Width="100" Binding="{Binding id}"/>
                             <DataGridTextColumn Header="测试年龄" Width="60" Binding="{Binding exam_age}"/>
                             <DataGridTextColumn Header="完成状态" Width="60" Binding="{Binding finish_flag}"/>
                             <DataGridTextColumn Header="操作者" Width="100" Binding="{Binding operater}"/>
-                            <DataGridTextColumn Header="其他" Width="*" />
+                            <DataGridTemplateColumn Header="其他" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="检查分析" Click="btnAnalyse" Margin="5,0"></Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

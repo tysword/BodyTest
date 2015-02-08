@@ -15,6 +15,7 @@
           <Property Name="exam_date" Type="timestamp" Precision="0" />
           <Property Name="operater" Type="varchar" MaxLength="100" />
           <Property Name="finish_flag" Type="char" MaxLength="1" />
+          <Property Name="analysis_flag" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="tab_exam_record">
           <Key>
@@ -193,6 +194,7 @@
           <NavigationProperty Name="tab_exam_record" Relationship="Self.record2exam" FromRole="tab_exam" ToRole="tab_exam_record" />
           <Property Name="exam_age" Type="Int32" />
           <Property Name="finish_flag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="analysis_flag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tab_exam_record">
           <Key>
@@ -368,6 +370,7 @@
           <EntitySetMapping Name="tab_exam">
             <EntityTypeMapping TypeName="jointexamModel.tab_exam">
               <MappingFragment StoreEntitySet="tab_exam">
+                <ScalarProperty Name="analysis_flag" ColumnName="analysis_flag" />
                 <ScalarProperty Name="finish_flag" ColumnName="finish_flag" />
                 <ScalarProperty Name="exam_age" ColumnName="exam_age" />
                 <ScalarProperty Name="person_id" ColumnName="person_id" />

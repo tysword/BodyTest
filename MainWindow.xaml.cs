@@ -128,7 +128,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
         public MainWindow(tab_exam exam)
         {
             this.exam = exam;
-
+            
             _sensor = KinectSensor.GetDefault();
 
             if (_sensor != null)
@@ -377,7 +377,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
         /// <param name="e">event arguments</param>
         private void MainWindow_Closing(object sender, CancelEventArgs e)
         {
-            if (exam.finish_flag != tab_exam.FinishFlagEnd)
+            if (exam.finish_flag != tab_exam.ExamFinishFlagEnd)
             {
                 MessageBoxResult result = MessageBox.Show("当前测试未完成，是否确定退出?", "", MessageBoxButton.YesNo);
 
@@ -546,7 +546,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button b = (Button)sender;
-
+         
 
             if (b.Name == "btnStartExam")
             {
@@ -566,7 +566,9 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                 switch (currrentType.style)
                 {
                     case 1:
-                        if (saveJoints(currrentType))
+                        Dictionary<JointType, CameraSpacePoint> jointPoints = this.jointPoints;
+
+                        if (saveJoints(currrentType, jointPoints))
                         {
                             MessageBox.Show(currrentType.name + "测试完成！");
                             this.btnEndExam.Visibility = Visibility.Hidden;
@@ -576,7 +578,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                         {
                             MessageBox.Show("无法获得检查数据，请调整姿势重新测量！");
                         }
-                        break;//
+                        break;
                     case 2:
                         if (dynamic_exam_times > 0) { 
                             dispatcherTimer.Stop();
@@ -740,19 +742,18 @@ sinlu右ksp
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            if (saveJoints(currrentType))
+            Dictionary<JointType, CameraSpacePoint> jointPoints = this.jointPoints;
+
+            if (saveJoints(currrentType,jointPoints))
             {
                 dynamic_exam_times++;
             }
-
-         //Console.WriteLine(DateTime.Now);
         }
 
-        private bool saveJoints(tab_exam_type type)
+        private bool saveJoints(tab_exam_type type, Dictionary<JointType, CameraSpacePoint> jointPoints)
         {
-          
+           
 
-            Dictionary<JointType, CameraSpacePoint> jointPoints = this.jointPoints;
             if (!validatedJointPoints(type,jointPoints))
             {
                 return false;
@@ -770,174 +771,8 @@ sinlu右ksp
                     exam_snapshot_path = path
                 };
 
-
-                #region body
-                if (jointPoints.ContainsKey(JointType.Head))
-                {
-                    t.HeadX = jointPoints[JointType.Head].X;
-                    t.HeadY = jointPoints[JointType.Head].Y;
-                    t.HeadZ = jointPoints[JointType.Head].Z;
-                }
-
-                if (jointPoints.ContainsKey(JointType.Neck))
-                {
-                    t.NeckX = jointPoints[JointType.Neck].X;
-                    t.NeckY = jointPoints[JointType.Neck].Y;
-                    t.NeckZ = jointPoints[JointType.Neck].Z;
-                }
-
-                if (jointPoints.ContainsKey(JointType.SpineShoulder))
-                {
-                    t.SpineShoulderX = jointPoints[JointType.SpineShoulder].X;
-                    t.SpineShoulderY = jointPoints[JointType.SpineShoulder].Y;
-                    t.SpineShoulderZ = jointPoints[JointType.SpineShoulder].Z;
-                }
-
-                if (jointPoints.ContainsKey(JointType.SpineBase))
-                {
-                    t.SpineBaseX = jointPoints[JointType.SpineBase].X;
-                    t.SpineBaseY = jointPoints[JointType.SpineBase].Y;
-                    t.SpineBaseZ = jointPoints[JointType.SpineBase].Z;
-                }
-
-                if (jointPoints.ContainsKey(JointType.SpineMid))
-                {
-                    t.SpineMidX = jointPoints[JointType.SpineMid].X;
-                    t.SpineMidY = jointPoints[JointType.SpineMid].Y;
-                    t.SpineMidZ = jointPoints[JointType.SpineMid].Z;
-                }
-                #endregion body
-
-                #region body left
-                if (jointPoints.ContainsKey(JointType.ShoulderLeft))
-                {
-                    t.ShoulderLeftX = jointPoints[JointType.ShoulderLeft].X;
-                    t.ShoulderLeftY = jointPoints[JointType.ShoulderLeft].Y;
-                    t.ShoulderLeftZ = jointPoints[JointType.ShoulderLeft].Z;
-                }
-
-                if (jointPoints.ContainsKey(JointType.ElbowLeft))
-                {
-                    t.ElbowLeftX = jointPoints[JointType.ElbowLeft].X;
-                    t.ElbowLeftY = jointPoints[JointType.ElbowLeft].Y;
-                    t.ElbowLeftZ = jointPoints[JointType.ElbowLeft].Z;
-                }
-
-                if (jointPoints.ContainsKey(JointType.WristLeft))
-                {
-                    t.WristLeftX = jointPoints[JointType.WristLeft].X;
-                    t.WristLeftY = jointPoints[JointType.WristLeft].Y;
-                    t.WristLeftZ = jointPoints[JointType.WristLeft].Z;
-                }
-
-                if (jointPoints.ContainsKey(JointType.HandLeft))
-                {
-                    t.HandLeftX = jointPoints[JointType.HandLeft].X;
-                    t.HandLeftY = jointPoints[JointType.HandLeft].Y;
-                    t.HandLeftZ = jointPoints[JointType.HandLeft].Z;
-                }
-
-                if (jointPoints.ContainsKey(JointType.HandTipLeft))
-                {
-                    t.HandTipLeftX = jointPoints[JointType.HandTipLeft].X;
-                    t.HandTipLeftY = jointPoints[JointType.HandTipLeft].Y;
-                    t.HandTipLeftZ = jointPoints[JointType.HandTipLeft].Z;
-                }
-
-                if (jointPoints.ContainsKey(JointType.ThumbLeft))
-                {
-                    t.ThumbLeftX = jointPoints[JointType.ThumbLeft].X;
-                    t.ThumbLeftY = jointPoints[JointType.ThumbLeft].Y;
-                    t.ThumbLeftZ = jointPoints[JointType.ThumbLeft].Z;
-                }
-
-                if (jointPoints.ContainsKey(JointType.HipLeft))
-                {
-                    t.HipLeftX = jointPoints[JointType.HipLeft].X;
-                    t.HipLeftY = jointPoints[JointType.HipLeft].Y;
-                    t.HipLeftZ = jointPoints[JointType.HipLeft].Z;
-                }
-
-                if (jointPoints.ContainsKey(JointType.KneeLeft))
-                {
-                    t.KneeLeftX = jointPoints[JointType.KneeLeft].X;
-                    t.KneeLeftY = jointPoints[JointType.KneeLeft].Y;
-                    t.KneeLeftZ = jointPoints[JointType.KneeLeft].Z;
-                }
-
-                if (jointPoints.ContainsKey(JointType.AnkleLeft))
-                {
-                    t.AnkleLeftX = jointPoints[JointType.AnkleLeft].X;
-                    t.AnkleLeftY = jointPoints[JointType.AnkleLeft].Y;
-                    t.AnkleLeftZ = jointPoints[JointType.AnkleLeft].Z;
-                }
-                #endregion body left
-
-                #region body right
-                if (jointPoints.ContainsKey(JointType.ShoulderRight))
-                {
-                    t.ShoulderRightX = jointPoints[JointType.ShoulderRight].X;
-                    t.ShoulderRightY = jointPoints[JointType.ShoulderRight].Y;
-                    t.ShoulderRightZ = jointPoints[JointType.ShoulderRight].Z;
-                }
-
-                if (jointPoints.ContainsKey(JointType.ElbowRight))
-                {
-                    t.ElbowRightX = jointPoints[JointType.ElbowRight].X;
-                    t.ElbowRightY = jointPoints[JointType.ElbowRight].Y;
-                    t.ElbowRightZ = jointPoints[JointType.ElbowRight].Z;
-                }
-
-                if (jointPoints.ContainsKey(JointType.WristRight))
-                {
-                    t.WristRightX = jointPoints[JointType.WristRight].X;
-                    t.WristRightY = jointPoints[JointType.WristRight].Y;
-                    t.WristRightZ = jointPoints[JointType.WristRight].Z;
-                }
-
-                if (jointPoints.ContainsKey(JointType.HandRight))
-                {
-                    t.HandRightX = jointPoints[JointType.HandRight].X;
-                    t.HandRightY = jointPoints[JointType.HandRight].Y;
-                    t.HandRightZ = jointPoints[JointType.HandRight].Z;
-                }
-
-                if (jointPoints.ContainsKey(JointType.HandTipRight))
-                {
-                    t.HandTipRightX = jointPoints[JointType.HandTipRight].X;
-                    t.HandTipRightY = jointPoints[JointType.HandTipRight].Y;
-                    t.HandTipRightZ = jointPoints[JointType.HandTipRight].Z;
-                }
-
-                if (jointPoints.ContainsKey(JointType.ThumbRight))
-                {
-                    t.ThumbRightX = jointPoints[JointType.ThumbRight].X;
-                    t.ThumbRightY = jointPoints[JointType.ThumbRight].Y;
-                    t.ThumbRightZ = jointPoints[JointType.ThumbRight].Z;
-                }
-
-                if (jointPoints.ContainsKey(JointType.HipRight))
-                {
-                    t.HipRightX = jointPoints[JointType.HipRight].X;
-                    t.HipRightY = jointPoints[JointType.HipRight].Y;
-                    t.HipRightZ = jointPoints[JointType.HipRight].Z;
-                }
-
-                if (jointPoints.ContainsKey(JointType.KneeRight))
-                {
-                    t.KneeRightX = jointPoints[JointType.KneeRight].X;
-                    t.KneeRightY = jointPoints[JointType.KneeRight].Y;
-                    t.KneeRightZ = jointPoints[JointType.KneeRight].Z;
-                }
-
-                if (jointPoints.ContainsKey(JointType.AnkleRight))
-                {
-                    t.AnkleRightX = jointPoints[JointType.AnkleRight].X;
-                    t.AnkleRightY = jointPoints[JointType.AnkleRight].Y;
-                    t.AnkleRightZ = jointPoints[JointType.AnkleRight].Z;
-                }
-                #endregion body right
-
+                t.setPoints(jointPoints);
+               
                 ctx.tab_exam_record.Add(t);
                 ctx.SaveChanges();
 
@@ -1007,7 +842,7 @@ sinlu右ksp
             using (var ctx = new jointexamEntities())
             {
                 var ex =ctx.tab_exam.SingleOrDefault(a => a.id == exam.id);
-                ex.finish_flag = tab_exam.FinishFlagEnd;
+                ex.finish_flag = tab_exam.ExamFinishFlagEnd;
                 ctx.SaveChanges();
             }
 

@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Microsoft.Kinect;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -25,16 +26,17 @@ namespace Microsoft.Samples.Kinect.BodyBasics
     public partial class Window1 : Window
     {
 
-        
-    /// <summary>
-    /// Current status text to display
-    /// </summary>
+
+        /// <summary>
+        /// Current status text to display
+        /// </summary>
         private string statusText = "running";
 
         public Window1()
         {
             InitializeComponent();
             this.StatusText = "running...";
+          //  JointType t = (JointType)Enum.Parse(typeof(JointType), "1");
         }
         /// <summary>
         /// Gets or sets the current status text to display
@@ -51,18 +53,18 @@ namespace Microsoft.Samples.Kinect.BodyBasics
 
             set
             {
-                  this.statusText = value; 
+                this.statusText = value;
             }
         }
 
         private void startExam(tab_person p)
         {
-          
+
             tab_exam exam = new tab_exam();
             exam.exam_date = DateTime.Now;
             exam.operater = "系统操作员";
             exam.exam_age = getPersonAge((DateTime)p.birthday);
-            exam.finish_flag = tab_exam.FinishFlagStart;
+            exam.finish_flag = tab_exam.ExamFinishFlagStart;
 
             using (var ctx = new jointexamEntities())
             {
@@ -89,7 +91,8 @@ namespace Microsoft.Samples.Kinect.BodyBasics
         {
             MenuItem m = (MenuItem)sender;
             string header = m.Header.ToString();
-            switch(header){
+            switch (header)
+            {
                 case "退出":
                     Application.Current.Shutdown();
                     break;
@@ -98,7 +101,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                     break;
                 case "检查浏览":
                     this.tcMain.SelectedIndex = 1;
-                    
+
                     break;
             }
         }
@@ -115,9 +118,10 @@ namespace Microsoft.Samples.Kinect.BodyBasics
 
         private void dgPerson_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if(((DataGrid)sender).SelectedItem!=null){
-                tab_person p =  ((tab_person)this.dgPerson.SelectedItem);
-                txtName.Text =p.name;
+            if (((DataGrid)sender).SelectedItem != null)
+            {
+                tab_person p = ((tab_person)this.dgPerson.SelectedItem);
+                txtName.Text = p.name;
                 this.txtID.Text = p.id.ToString();
                 this.txtSex.Text = p.sex;
                 this.txtRace.Text = p.race;
@@ -131,10 +135,10 @@ namespace Microsoft.Samples.Kinect.BodyBasics
 
                     DbSet<tab_exam> set = ctx.Set<tab_exam>();
 
-                    List<tab_exam> list = set.SqlQuery("select * from tab_exam where person_id='"+p.id+"'").ToList();
+                    List<tab_exam> list = set.SqlQuery("select * from tab_exam where person_id='" + p.id + "'").ToList();
                     this.dgExam.ItemsSource = list;
                 }
-                
+
             }
         }
 
@@ -146,7 +150,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
             this.txtSName.Text = "";
         }
 
-     
+
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -213,7 +217,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
 
         private void DatePicker_CalendarClosed(object sender, RoutedEventArgs e)
         {
-            tAge.Text = getPersonAge((DateTime) dpBirthday.SelectedDate).ToString();
+            tAge.Text = getPersonAge((DateTime)dpBirthday.SelectedDate).ToString();
         }
 
         private void btnStartNew_Click(object sender, RoutedEventArgs e)
@@ -234,9 +238,9 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                 p.height = float.Parse(tHeight.Text);
                 p.birthday = dpBirthday.SelectedDate;
             }
-            catch (Exception e1)
+            catch (Exception)
             {
-                
+
             }
 
 
@@ -255,18 +259,29 @@ namespace Microsoft.Samples.Kinect.BodyBasics
             Application.Current.Shutdown();
         }
 
-
-        private void dgExam_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void btnAnalyse(object sender, RoutedEventArgs e)
         {
-              if (dgExam.SelectedItem != null)
-            {
-                Window3 w = new Window3(((tab_exam)dgExam.SelectedItem).id);
-                w.ShowDialog();
-            }
-        }
-    }
 
-    
+
+            if (dgExam.SelectedItem != null)
+            {
+                tab_exam exam = (tab_exam)dgExam.SelectedItem;
+
+                using (var ctx = new jointexamEntities())
+                {
+                    var ex = ctx.tab_exam.SingleOrDefault(a => a.id == exam.id);
+                    ex.analysis_flag = tab_exam.AnalysisEnd;
+                    ctx.SaveChanges();
+                }
+
+                Window3 w = new Window3(exam.id);
+                w.ShowDialog();
+
+            }
+
+        }
+
+    }
 
    
 }

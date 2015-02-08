@@ -9,6 +9,7 @@
 
 namespace Microsoft.Samples.Kinect.BodyBasics
 {
+    using Microsoft.Kinect;
     using System;
     using System.Collections.Generic;
     
@@ -97,5 +98,184 @@ namespace Microsoft.Samples.Kinect.BodyBasics
     
         public virtual tab_exam tab_exam { get; set; }
         public virtual tab_exam_type tab_exam_type { get; set; }
+
+
+
+        public Dictionary<JointType, CameraSpacePoint> convert2JointPoints()
+        {
+            Dictionary<JointType, CameraSpacePoint> points = new Dictionary<JointType, CameraSpacePoint>();
+            return points;
+        }
+
+        public void setPoints(Dictionary<JointType, CameraSpacePoint> jointPoints)
+        {
+            #region body
+            if (jointPoints.ContainsKey(JointType.Head))
+            {
+                this.HeadX = jointPoints[JointType.Head].X;
+                this.HeadY = jointPoints[JointType.Head].Y;
+                this.HeadZ = jointPoints[JointType.Head].Z;
+            }
+
+            if (jointPoints.ContainsKey(JointType.Neck))
+            {
+                this.NeckX = jointPoints[JointType.Neck].X;
+                this.NeckY = jointPoints[JointType.Neck].Y;
+                this.NeckZ = jointPoints[JointType.Neck].Z;
+            }
+
+            if (jointPoints.ContainsKey(JointType.SpineShoulder))
+            {
+                this.SpineShoulderX = jointPoints[JointType.SpineShoulder].X;
+                this.SpineShoulderY = jointPoints[JointType.SpineShoulder].Y;
+                this.SpineShoulderZ = jointPoints[JointType.SpineShoulder].Z;
+            }
+
+            if (jointPoints.ContainsKey(JointType.SpineBase))
+            {
+                this.SpineBaseX = jointPoints[JointType.SpineBase].X;
+                this.SpineBaseY = jointPoints[JointType.SpineBase].Y;
+                this.SpineBaseZ = jointPoints[JointType.SpineBase].Z;
+            }
+
+            if (jointPoints.ContainsKey(JointType.SpineMid))
+            {
+                this.SpineMidX = jointPoints[JointType.SpineMid].X;
+                this.SpineMidY = jointPoints[JointType.SpineMid].Y;
+                this.SpineMidZ = jointPoints[JointType.SpineMid].Z;
+            }
+            #endregion body
+
+            #region body left
+            if (jointPoints.ContainsKey(JointType.ShoulderLeft))
+            {
+                this.ShoulderLeftX = jointPoints[JointType.ShoulderLeft].X;
+                this.ShoulderLeftY = jointPoints[JointType.ShoulderLeft].Y;
+                this.ShoulderLeftZ = jointPoints[JointType.ShoulderLeft].Z;
+            }
+
+            if (jointPoints.ContainsKey(JointType.ElbowLeft))
+            {
+                this.ElbowLeftX = jointPoints[JointType.ElbowLeft].X;
+                this.ElbowLeftY = jointPoints[JointType.ElbowLeft].Y;
+                this.ElbowLeftZ = jointPoints[JointType.ElbowLeft].Z;
+            }
+
+            if (jointPoints.ContainsKey(JointType.WristLeft))
+            {
+                this.WristLeftX = jointPoints[JointType.WristLeft].X;
+                this.WristLeftY = jointPoints[JointType.WristLeft].Y;
+                this.WristLeftZ = jointPoints[JointType.WristLeft].Z;
+            }
+
+            if (jointPoints.ContainsKey(JointType.HandLeft))
+            {
+                this.HandLeftX = jointPoints[JointType.HandLeft].X;
+                this.HandLeftY = jointPoints[JointType.HandLeft].Y;
+                this.HandLeftZ = jointPoints[JointType.HandLeft].Z;
+            }
+
+            if (jointPoints.ContainsKey(JointType.HandTipLeft))
+            {
+                this.HandTipLeftX = jointPoints[JointType.HandTipLeft].X;
+                this.HandTipLeftY = jointPoints[JointType.HandTipLeft].Y;
+                this.HandTipLeftZ = jointPoints[JointType.HandTipLeft].Z;
+            }
+
+            if (jointPoints.ContainsKey(JointType.ThumbLeft))
+            {
+                this.ThumbLeftX = jointPoints[JointType.ThumbLeft].X;
+                this.ThumbLeftY = jointPoints[JointType.ThumbLeft].Y;
+                this.ThumbLeftZ = jointPoints[JointType.ThumbLeft].Z;
+            }
+
+            if (jointPoints.ContainsKey(JointType.HipLeft))
+            {
+                this.HipLeftX = jointPoints[JointType.HipLeft].X;
+                this.HipLeftY = jointPoints[JointType.HipLeft].Y;
+                this.HipLeftZ = jointPoints[JointType.HipLeft].Z;
+            }
+
+            if (jointPoints.ContainsKey(JointType.KneeLeft))
+            {
+                this.KneeLeftX = jointPoints[JointType.KneeLeft].X;
+                this.KneeLeftY = jointPoints[JointType.KneeLeft].Y;
+                this.KneeLeftZ = jointPoints[JointType.KneeLeft].Z;
+            }
+
+            if (jointPoints.ContainsKey(JointType.AnkleLeft))
+            {
+                this.AnkleLeftX = jointPoints[JointType.AnkleLeft].X;
+                this.AnkleLeftY = jointPoints[JointType.AnkleLeft].Y;
+                this.AnkleLeftZ = jointPoints[JointType.AnkleLeft].Z;
+            }
+            #endregion body left
+
+            #region body right
+            if (jointPoints.ContainsKey(JointType.ShoulderRight))
+            {
+                this.ShoulderRightX = jointPoints[JointType.ShoulderRight].X;
+                this.ShoulderRightY = jointPoints[JointType.ShoulderRight].Y;
+                this.ShoulderRightZ = jointPoints[JointType.ShoulderRight].Z;
+            }
+
+            if (jointPoints.ContainsKey(JointType.ElbowRight))
+            {
+                this.ElbowRightX = jointPoints[JointType.ElbowRight].X;
+                this.ElbowRightY = jointPoints[JointType.ElbowRight].Y;
+                this.ElbowRightZ = jointPoints[JointType.ElbowRight].Z;
+            }
+
+            if (jointPoints.ContainsKey(JointType.WristRight))
+            {
+                this.WristRightX = jointPoints[JointType.WristRight].X;
+                this.WristRightY = jointPoints[JointType.WristRight].Y;
+                this.WristRightZ = jointPoints[JointType.WristRight].Z;
+            }
+
+            if (jointPoints.ContainsKey(JointType.HandRight))
+            {
+                this.HandRightX = jointPoints[JointType.HandRight].X;
+                this.HandRightY = jointPoints[JointType.HandRight].Y;
+                this.HandRightZ = jointPoints[JointType.HandRight].Z;
+            }
+
+            if (jointPoints.ContainsKey(JointType.HandTipRight))
+            {
+                this.HandTipRightX = jointPoints[JointType.HandTipRight].X;
+                this.HandTipRightY = jointPoints[JointType.HandTipRight].Y;
+                this.HandTipRightZ = jointPoints[JointType.HandTipRight].Z;
+            }
+
+            if (jointPoints.ContainsKey(JointType.ThumbRight))
+            {
+                this.ThumbRightX = jointPoints[JointType.ThumbRight].X;
+                this.ThumbRightY = jointPoints[JointType.ThumbRight].Y;
+                this.ThumbRightZ = jointPoints[JointType.ThumbRight].Z;
+            }
+
+            if (jointPoints.ContainsKey(JointType.HipRight))
+            {
+                this.HipRightX = jointPoints[JointType.HipRight].X;
+                this.HipRightY = jointPoints[JointType.HipRight].Y;
+                this.HipRightZ = jointPoints[JointType.HipRight].Z;
+            }
+
+            if (jointPoints.ContainsKey(JointType.KneeRight))
+            {
+                this.KneeRightX = jointPoints[JointType.KneeRight].X;
+                this.KneeRightY = jointPoints[JointType.KneeRight].Y;
+                this.KneeRightZ = jointPoints[JointType.KneeRight].Z;
+            }
+
+            if (jointPoints.ContainsKey(JointType.AnkleRight))
+            {
+                this.AnkleRightX = jointPoints[JointType.AnkleRight].X;
+                this.AnkleRightY = jointPoints[JointType.AnkleRight].Y;
+                this.AnkleRightZ = jointPoints[JointType.AnkleRight].Z;
+            }
+            #endregion body right
+
+        }
     }
 }

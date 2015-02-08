@@ -69,13 +69,9 @@ namespace Microsoft.Samples.Kinect.BodyBasics
             }
         }
 
-        private double getAngle(double[] pointA,double[]pointB,double[]pointC,double[]pointD){
-          double AB_CD= Math.Abs((pointB[0] - pointA[0])*(pointD[0] - pointC[0]) + (pointB[1] - pointA[1])*(pointD[1] - pointC[1]) + (pointB[2] - pointA[2])*(pointD[2] - pointC[2]));
-          double sprtAB = Math.Sqrt((pointB[0] - pointA[0]) * (pointB[0] - pointA[0]) + (pointB[1] - pointA[1]) * (pointB[1] - pointA[1]) + (pointB[2] - pointA[2]) * (pointB[2] - pointA[2]));
-          double sprtCD = Math.Sqrt((pointD[0]) - pointC[0]) * (pointD[0] - pointC[0]) + (pointD[1] - pointC[1]) * (pointD[1] - pointC[1]) + (pointD[2]) - pointC[2] * (pointD[2] - pointC[2]);
-          double cos = AB_CD / (sprtCD * sprtAB);
+        private void WindowsFormsHost_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
+        {
 
-          return Math.Acos(cos);
         }
     }
 }

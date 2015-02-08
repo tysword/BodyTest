@@ -15,8 +15,10 @@ namespace Microsoft.Samples.Kinect.BodyBasics
     public partial class tab_exam
     {
 
-        public const String FinishFlagStart = "S";
-        public const String FinishFlagEnd   = "E"; 
+        public const String ExamFinishFlagStart = "S";
+        public const String ExamFinishFlagEnd = "E";
+
+        public const String AnalysisEnd = "E";
         public tab_exam()
         {
             this.tab_exam_record = new HashSet<tab_exam_record>();
@@ -28,6 +30,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
         public string operater { get; set; }
         public Nullable<int> exam_age { get; set; }
         public string finish_flag { get; set; }
+        public string analysis_flag { get; set; }
     
         public virtual tab_person tab_person { get; set; }
         public virtual ICollection<tab_exam_record> tab_exam_record { get; set; }
