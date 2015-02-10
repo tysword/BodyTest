@@ -14,7 +14,6 @@ namespace Microsoft.Samples.Kinect.BodyBasics
     
     public partial class tab_exam
     {
-
         public const String ExamFinishFlagStart = "S";
         public const String ExamFinishFlagEnd = "E";
 

@@ -7,11 +7,18 @@
       <Diagram DiagramId="c1cd7e02aea1465989465fd8618f1418" Name="Diagram1" ZoomLevel="88">
         <EntityTypeShape EntityType="jointexamModel.tab_exam" Width="1.5" PointX="4" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="jointexamModel.tab_exam_record" Width="1.5" PointX="6.75" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="jointexamModel.tab_exam_type" Width="1.5" PointX="9.625" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="jointexamModel.tab_exam_type" Width="1.5" PointX="10.25" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="jointexamModel.tab_person" Width="1.5" PointX="0.5" PointY="2.375" IsExpanded="true" />
         <AssociationConnector Association="jointexamModel.exam2person" ManuallyRouted="false" />
         <AssociationConnector Association="jointexamModel.record2exam" ManuallyRouted="false" />
         <AssociationConnector Association="jointexamModel.record2type" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="jointexamModel.tab_analysis_result" Width="1.5" PointX="10.875" PointY="1.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="jointexamModel.tab_analysis_type" Width="2.5" PointX="13.875" PointY="3.125" IsExpanded="true" />
+        <AssociationConnector Association="jointexamModel.analysisresult2examrecord" />
+        <AssociationConnector Association="jointexamModel.analysis2examtype" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="jointexamModel.analysisresult2type" />
+        <AssociationConnector Association="jointexamModel.analysis_vs_exam_type" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

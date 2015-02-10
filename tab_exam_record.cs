@@ -15,6 +15,11 @@ namespace Microsoft.Samples.Kinect.BodyBasics
     
     public partial class tab_exam_record
     {
+        public tab_exam_record()
+        {
+            this.tab_analysis_result = new HashSet<tab_analysis_result>();
+        }
+    
         public int id { get; set; }
         public int exam_type_id { get; set; }
         public int exam_id { get; set; }
@@ -98,8 +103,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
     
         public virtual tab_exam tab_exam { get; set; }
         public virtual tab_exam_type tab_exam_type { get; set; }
-
-
+        public virtual ICollection<tab_analysis_result> tab_analysis_result { get; set; }
 
         public Dictionary<JointType, CameraSpacePoint> convert2JointPoints()
         {
