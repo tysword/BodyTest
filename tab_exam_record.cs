@@ -107,8 +107,133 @@ namespace Microsoft.Samples.Kinect.BodyBasics
 
         public Dictionary<JointType, CameraSpacePoint> convert2JointPoints()
         {
-            Dictionary<JointType, CameraSpacePoint> points = new Dictionary<JointType, CameraSpacePoint>();
-            return points;
+            Dictionary<JointType, CameraSpacePoint> jointPoints = new Dictionary<JointType, CameraSpacePoint>();
+
+            #region body
+            CameraSpacePoint p = new CameraSpacePoint();
+
+            if (HeadX != null)
+            {
+                p.X = (float)this.HeadX; p.Y = (float)this.HeadY; p.Z = (float)this.HeadZ; jointPoints.Add(JointType.Head, p);
+            }
+
+            if (NeckX != null)
+            {
+                p = new CameraSpacePoint(); p.X = (float)this.NeckX; p.Y = (float)this.NeckY; p.Z = (float)this.NeckZ; jointPoints.Add(JointType.Neck, p);
+            }
+
+            if (SpineShoulderX != null)
+            {
+                p = new CameraSpacePoint(); p.X = (float)this.SpineShoulderX; p.Y = (float)this.SpineShoulderY; p.Z = (float)this.SpineShoulderZ; jointPoints.Add(JointType.SpineShoulder, p);
+            }
+
+            if (SpineBaseX != null)
+            {
+                p = new CameraSpacePoint(); p.X = (float)this.SpineBaseX; p.Y = (float)this.SpineBaseY; p.Z = (float)this.SpineBaseZ; jointPoints.Add(JointType.SpineBase, p);
+            }
+
+            if (SpineMidX != null)
+            {
+                p = new CameraSpacePoint(); p.X = (float)this.SpineMidX; p.Y = (float)this.SpineMidY; p.Z = (float)this.SpineMidZ; jointPoints.Add(JointType.SpineMid, p);
+            }
+            #endregion body
+
+            #region body left
+            if (ShoulderLeftX != null)
+            {
+                p = new CameraSpacePoint(); p.X = (float)this.ShoulderLeftX; p.Y = (float)this.ShoulderLeftY; p.Z = (float)this.ShoulderLeftZ; jointPoints.Add(JointType.ShoulderLeft, p);
+            }
+
+            if (ElbowLeftX != null)
+            {
+                p = new CameraSpacePoint(); p.X = (float)this.ElbowLeftX; p.Y = (float)this.ElbowLeftY; p.Z = (float)this.ElbowLeftZ; jointPoints.Add(JointType.ElbowLeft, p);
+            }
+
+            if (WristLeftX != null)
+            {
+                p = new CameraSpacePoint(); p.X = (float)this.WristLeftX; p.Y = (float)this.WristLeftY; p.Z = (float)this.WristLeftZ; jointPoints.Add(JointType.WristLeft, p);
+            }
+
+            if (HandLeftX != null)
+            {
+                p = new CameraSpacePoint(); p.X = (float)this.HandLeftX; p.Y = (float)this.HandLeftY; p.Z = (float)this.HandLeftZ; jointPoints.Add(JointType.HandLeft, p);
+            }
+
+            if (HandTipLeftX != null)
+            {
+                p = new CameraSpacePoint(); p.X = (float)this.HandTipLeftX; p.Y = (float)this.HandTipLeftY; p.Z = (float)this.HandTipLeftZ; jointPoints.Add(JointType.HandTipLeft, p);
+            }
+
+            if (ThumbLeftX != null)
+            {
+                p = new CameraSpacePoint(); p.X = (float)this.ThumbLeftX; p.Y = (float)this.ThumbLeftY; p.Z = (float)this.ThumbLeftZ; jointPoints.Add(JointType.ThumbLeft, p);
+            }
+
+            if (HipLeftX != null)
+            {
+                p = new CameraSpacePoint(); p.X = (float)this.HipLeftX; p.Y = (float)this.HipLeftY; p.Z = (float)this.HipLeftZ; jointPoints.Add(JointType.HipLeft, p);
+            }
+
+            if (KneeLeftX != null)
+            {
+                p = new CameraSpacePoint(); p.X = (float)this.KneeLeftX; p.Y = (float)this.KneeLeftY; p.Z = (float)this.KneeLeftZ; jointPoints.Add(JointType.KneeLeft, p);
+            }
+
+            if (AnkleLeftX != null)
+            {
+                p = new CameraSpacePoint(); p.X = (float)this.AnkleLeftX; p.Y = (float)this.AnkleLeftY; p.Z = (float)this.AnkleLeftZ; jointPoints.Add(JointType.AnkleLeft, p);
+            }
+            #endregion body left
+
+            #region body right
+            if (ShoulderRightX != null)
+            {
+                p = new CameraSpacePoint(); p.X = (float)this.ShoulderRightX; p.Y = (float)this.ShoulderRightY; p.Z = (float)this.ShoulderRightZ; jointPoints.Add(JointType.ShoulderRight, p);
+            }
+
+            if (ElbowRightX != null)
+            {
+                p = new CameraSpacePoint(); p.X = (float)this.ElbowRightX; p.Y = (float)this.ElbowRightY; p.Z = (float)this.ElbowRightZ; jointPoints.Add(JointType.ElbowRight, p);
+            }
+
+            if (WristRightX != null)
+            {
+                p = new CameraSpacePoint(); p.X = (float)this.WristRightX; p.Y = (float)this.WristRightY; p.Z = (float)this.WristRightZ; jointPoints.Add(JointType.WristRight, p);
+            }
+            if (HandRightX != null)
+            {
+                p = new CameraSpacePoint(); p.X = (float)this.HandRightX; p.Y = (float)this.HandRightY; p.Z = (float)this.HandRightZ; jointPoints.Add(JointType.HandRight, p);
+            }
+
+
+            if (HandTipRightX != null)
+            {
+                p = new CameraSpacePoint(); p.X = (float)this.HandTipRightX; p.Y = (float)this.HandTipRightY; p.Z = (float)this.HandTipRightZ; jointPoints.Add(JointType.HandTipRight, p);
+            }
+
+            if (ThumbRightX != null)
+            {
+                p = new CameraSpacePoint(); p.X = (float)this.ThumbRightX; p.Y = (float)this.ThumbRightY; p.Z = (float)this.ThumbRightZ; jointPoints.Add(JointType.ThumbRight, p);
+            }
+
+            if (HipRightX != null)
+            {
+                p = new CameraSpacePoint(); p.X = (float)this.HipRightX; p.Y = (float)this.HipRightY; p.Z = (float)this.HipRightZ; jointPoints.Add(JointType.HipRight, p);
+            }
+
+            if (KneeRightX != null)
+            {
+                p = new CameraSpacePoint(); p.X = (float)this.KneeRightX; p.Y = (float)this.KneeRightY; p.Z = (float)this.KneeRightZ; jointPoints.Add(JointType.KneeRight, p);
+            }
+
+            if (AnkleRightX != null)
+            {
+                p = new CameraSpacePoint(); p.X = (float)this.AnkleRightX; p.Y = (float)this.AnkleRightY; p.Z = (float)this.AnkleRightZ; jointPoints.Add(JointType.AnkleRight, p);
+            }
+            #endregion body right
+
+
+            return jointPoints;
         }
 
         public void setPoints(Dictionary<JointType, CameraSpacePoint> jointPoints)
