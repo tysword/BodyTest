@@ -261,17 +261,21 @@ namespace Microsoft.Samples.Kinect.BodyBasics
 
         private void btnAnalyse(object sender, RoutedEventArgs e)
         {
-
-
             if (dgExam.SelectedItem != null)
             {
                 tab_exam exam = (tab_exam)dgExam.SelectedItem;
 
-                using (var ctx = new jointexamEntities())
+                if (!tab_exam.AnalysisEnd.Equals(exam.analysis_flag) && tab_exam.ExamFinishFlagEnd.Equals(exam.finish_flag))
                 {
-                    var ex = ctx.tab_exam.SingleOrDefault(a => a.id == exam.id);
-                    ex.analysis_flag = tab_exam.AnalysisEnd;
-                    ctx.SaveChanges();
+                    JointCaculater jc = new JointCaculater();
+                    jc.analysis(exam);
+
+                    using (var ctx = new jointexamEntities())   //分析结果，并更改记录分析状态为完成。
+                    {
+                        var ex = ctx.tab_exam.SingleOrDefault(a => a.id == exam.id);
+                        ex.analysis_flag = tab_exam.AnalysisEnd;
+                        ctx.SaveChanges();
+                    }
                 }
 
                 Window3 w = new Window3(exam.id);

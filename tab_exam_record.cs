@@ -23,6 +23,8 @@ namespace Microsoft.Samples.Kinect.BodyBasics
         public int id { get; set; }
         public int exam_type_id { get; set; }
         public int exam_id { get; set; }
+        public Nullable<System.DateTime> exam_time { get; set; }
+        public string exam_snapshot_path { get; set; }
         public Nullable<double> SpineBaseX { get; set; }
         public Nullable<double> SpineBaseY { get; set; }
         public Nullable<double> SpineBaseZ { get; set; }
@@ -98,12 +100,10 @@ namespace Microsoft.Samples.Kinect.BodyBasics
         public Nullable<double> ThumbRightX { get; set; }
         public Nullable<double> ThumbRightY { get; set; }
         public Nullable<double> ThumbRightZ { get; set; }
-        public Nullable<System.DateTime> exam_time { get; set; }
-        public string exam_snapshot_path { get; set; }
     
+        public virtual ICollection<tab_analysis_result> tab_analysis_result { get; set; }
         public virtual tab_exam tab_exam { get; set; }
         public virtual tab_exam_type tab_exam_type { get; set; }
-        public virtual ICollection<tab_analysis_result> tab_analysis_result { get; set; }
 
         public Dictionary<JointType, CameraSpacePoint> convert2JointPoints()
         {

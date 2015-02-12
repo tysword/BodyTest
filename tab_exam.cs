@@ -23,11 +23,11 @@ namespace Microsoft.Samples.Kinect.BodyBasics
             this.tab_exam_record = new HashSet<tab_exam_record>();
         }
     
-        public int person_id { get; set; }
         public int id { get; set; }
+        public int person_id { get; set; }
+        public Nullable<int> exam_age { get; set; }
         public Nullable<System.DateTime> exam_date { get; set; }
         public string operater { get; set; }
-        public Nullable<int> exam_age { get; set; }
         public string finish_flag { get; set; }
         public string analysis_flag { get; set; }
     

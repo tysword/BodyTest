@@ -25,11 +25,11 @@ namespace Microsoft.Samples.Kinect.BodyBasics
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<tab_analysis_result> tab_analysis_result { get; set; }
+        public DbSet<tab_analysis_type> tab_analysis_type { get; set; }
         public DbSet<tab_exam> tab_exam { get; set; }
         public DbSet<tab_exam_record> tab_exam_record { get; set; }
         public DbSet<tab_exam_type> tab_exam_type { get; set; }
         public DbSet<tab_person> tab_person { get; set; }
-        public DbSet<tab_analysis_result> tab_analysis_result { get; set; }
-        public DbSet<tab_analysis_type> tab_analysis_type { get; set; }
     }
 }

@@ -16,8 +16,8 @@ namespace Microsoft.Samples.Kinect.BodyBasics
     {
         public tab_exam_type()
         {
-            this.tab_exam_record = new HashSet<tab_exam_record>();
             this.tab_analysis_type = new HashSet<tab_analysis_type>();
+            this.tab_exam_record = new HashSet<tab_exam_record>();
         }
     
         public int id { get; set; }
@@ -26,7 +26,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
         public int order { get; set; }
         public int style { get; set; }
     
-        public virtual ICollection<tab_exam_record> tab_exam_record { get; set; }
         public virtual ICollection<tab_analysis_type> tab_analysis_type { get; set; }
+        public virtual ICollection<tab_exam_record> tab_exam_record { get; set; }
     }
 }

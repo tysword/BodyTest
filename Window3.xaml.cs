@@ -27,6 +27,24 @@ namespace Microsoft.Samples.Kinect.BodyBasics
             this.examId = examId;
             InitializeComponent();
             _reportViewer.Load += ReportViewer_Load;
+            _reportViewer.LocalReport.SubreportProcessing +=LocalReport_SubreportProcessing;
+        }
+
+        private void LocalReport_SubreportProcessing(object sender, SubreportProcessingEventArgs e)
+        {
+            int type_id = Convert.ToInt32(e.Parameters["type_id"].Values[0]);
+            jointexamDataSet ds = new jointexamDataSet();
+            ds.EnforceConstraints = false;
+            ds.BeginInit();
+
+            ReportDataSource rs1 = new ReportDataSource();
+            rs1.Name = "DataSet1";
+            rs1.Value = ds.AnalysisType;
+            e.DataSources.Add(rs1);
+
+            jointexamDataSetTableAdapters.AnalysisTypeTableAdapter apt1 = new jointexamDataSetTableAdapters.AnalysisTypeTableAdapter();
+            apt1.ClearBeforeFill = true;
+            apt1.Fill(ds.AnalysisType,type_id,examId); 
         }
 
         private bool _isReportViewerLoaded;
@@ -46,7 +64,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                 
                 ReportDataSource rs1 = new ReportDataSource();
                 rs1.Name = "DataSet2";
-                rs1.Value = ds.ExamRecord;
+                rs1.Value = ds.tab_exam_type;
                 this._reportViewer.LocalReport.DataSources.Add(rs1);
                 
 
@@ -59,9 +77,9 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                 apt.ClearBeforeFill = true;
                 apt.Fill(ds.ExamMaster,examId);
 
-                jointexamDataSetTableAdapters.ExamRecordTableAdapter apt1= new jointexamDataSetTableAdapters.ExamRecordTableAdapter();
+                jointexamDataSetTableAdapters.tab_exam_typeTableAdapter apt1 = new jointexamDataSetTableAdapters.tab_exam_typeTableAdapter();
                 apt1.ClearBeforeFill = true;
-                apt1.Fill(ds.ExamRecord, examId);
+                apt1.Fill(ds.tab_exam_type);
 
                 _reportViewer.RefreshReport();
                 _isReportViewerLoaded = true;
