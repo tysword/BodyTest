@@ -195,6 +195,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="150212084901.psc" />
     <None Include="jointexamDataSet.xsc">
       <DependentUpon>jointexamDataSet.xsd</DependentUpon>
     </None>
