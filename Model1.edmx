@@ -22,6 +22,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="assess_name" Type="varchar" MaxLength="100" />
           <Property Name="analysis_category" Type="varchar" MaxLength="50" />
           <Property Name="analysis_name" Type="varchar" MaxLength="50" />
           <Property Name="analysis_fun" Type="int" />
@@ -29,7 +30,8 @@
           <Property Name="use_joints" Type="varchar" MaxLength="200" />
           <Property Name="ptr_order" Type="int" />
           <Property Name="result_num" Type="int" />
-          <Property Name="reference_analysis_type" Type="varchar" MaxLength="100" />
+          <Property Name="reference_analysis_type" Type="int" />
+          <Property Name="frames" Type="float" />
         </EntityType>
         <EntityType Name="tab_exam">
           <Key>
@@ -260,7 +262,6 @@
       <Schema Namespace="jointexamModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="jointexamEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tab_analysis_result" EntityType="jointexamModel.tab_analysis_result" />
-          <EntitySet Name="tab_analysis_type" EntityType="jointexamModel.tab_analysis_type" />
           <EntitySet Name="tab_exam" EntityType="jointexamModel.tab_exam" />
           <EntitySet Name="tab_exam_record" EntityType="jointexamModel.tab_exam_record" />
           <EntitySet Name="tab_exam_type" EntityType="jointexamModel.tab_exam_type" />
@@ -268,14 +269,6 @@
           <AssociationSet Name="analysisresult2examrecord" Association="jointexamModel.analysisresult2examrecord">
             <End Role="tab_exam_record" EntitySet="tab_exam_record" />
             <End Role="tab_analysis_result" EntitySet="tab_analysis_result" />
-          </AssociationSet>
-          <AssociationSet Name="analysisresult2type" Association="jointexamModel.analysisresult2type">
-            <End Role="tab_analysis_type" EntitySet="tab_analysis_type" />
-            <End Role="tab_analysis_result" EntitySet="tab_analysis_result" />
-          </AssociationSet>
-          <AssociationSet Name="analysis_vs_exam_type" Association="jointexamModel.analysis_vs_exam_type">
-            <End Role="tab_exam_type" EntitySet="tab_exam_type" />
-            <End Role="tab_analysis_type" EntitySet="tab_analysis_type" />
           </AssociationSet>
           <AssociationSet Name="exam2person" Association="jointexamModel.exam2person">
             <End Role="tab_person" EntitySet="tab_person" />
@@ -289,7 +282,16 @@
             <End Role="tab_exam_type" EntitySet="tab_exam_type" />
             <End Role="tab_exam_record" EntitySet="tab_exam_record" />
           </AssociationSet>
-        </EntityContainer>
+          <EntitySet Name="tab_analysis_type" EntityType="jointexamModel.tab_analysis_type" />
+          <AssociationSet Name="analysisresult2type" Association="jointexamModel.analysisresult2type">
+            <End Role="tab_analysis_type" EntitySet="tab_analysis_type" />
+            <End Role="tab_analysis_result" EntitySet="tab_analysis_result" />
+          </AssociationSet>
+          <AssociationSet Name="analysis_vs_exam_type" Association="jointexamModel.analysis_vs_exam_type">
+            <End Role="tab_exam_type" EntitySet="tab_exam_type" />
+            <End Role="tab_analysis_type" EntitySet="tab_analysis_type" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="tab_analysis_result">
           <Key>
             <PropertyRef Name="id" />
@@ -303,22 +305,6 @@
           <Property Name="z" Type="Double" />
           <NavigationProperty Name="tab_exam_record" Relationship="jointexamModel.analysisresult2examrecord" FromRole="tab_analysis_result" ToRole="tab_exam_record" />
           <NavigationProperty Name="tab_analysis_type" Relationship="jointexamModel.analysisresult2type" FromRole="tab_analysis_result" ToRole="tab_analysis_type" />
-        </EntityType>
-        <EntityType Name="tab_analysis_type">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="analysis_category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="analysis_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="analysis_fun" Type="Int32" />
-          <Property Name="exam_type" Type="Int32" />
-          <Property Name="use_joints" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="ptr_order" Type="Int32" />
-          <Property Name="result_num" Type="Int32" />
-          <Property Name="reference_analysis_type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tab_analysis_result" Relationship="jointexamModel.analysisresult2type" FromRole="tab_analysis_type" ToRole="tab_analysis_result" />
-          <NavigationProperty Name="tab_exam_type" Relationship="jointexamModel.analysis_vs_exam_type" FromRole="tab_analysis_type" ToRole="tab_exam_type" />
         </EntityType>
         <EntityType Name="tab_exam">
           <Key>
@@ -431,8 +417,8 @@
           <Property Name="desc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="order" Type="Int32" Nullable="false" />
           <Property Name="style" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tab_analysis_type" Relationship="jointexamModel.analysis_vs_exam_type" FromRole="tab_exam_type" ToRole="tab_analysis_type" />
           <NavigationProperty Name="tab_exam_record" Relationship="jointexamModel.record2type" FromRole="tab_exam_type" ToRole="tab_exam_record" />
+          <NavigationProperty Name="tab_analysis_type" Relationship="jointexamModel.analysis_vs_exam_type" FromRole="tab_exam_type" ToRole="tab_analysis_type" />
         </EntityType>
         <EntityType Name="tab_person">
           <Key>
@@ -456,30 +442,6 @@
             </Principal>
             <Dependent Role="tab_analysis_result">
               <PropertyRef Name="exam_record" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="analysisresult2type">
-          <End Type="jointexamModel.tab_analysis_type" Role="tab_analysis_type" Multiplicity="0..1" />
-          <End Type="jointexamModel.tab_analysis_result" Role="tab_analysis_result" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tab_analysis_type">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="tab_analysis_result">
-              <PropertyRef Name="analysis_type" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="analysis_vs_exam_type">
-          <End Type="jointexamModel.tab_exam_type" Role="tab_exam_type" Multiplicity="0..1" />
-          <End Type="jointexamModel.tab_analysis_type" Role="tab_analysis_type" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tab_exam_type">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="tab_analysis_type">
-              <PropertyRef Name="exam_type" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -519,6 +481,48 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="tab_analysis_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="assess_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="analysis_category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="analysis_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="analysis_fun" Type="Int32" />
+          <Property Name="exam_type" Type="Int32" />
+          <Property Name="use_joints" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ptr_order" Type="Int32" />
+          <Property Name="result_num" Type="Int32" />
+          <Property Name="reference_analysis_type" Type="Int32" />
+          <Property Name="frames" Type="Single" />
+          <NavigationProperty Name="tab_analysis_result" Relationship="jointexamModel.analysisresult2type" FromRole="tab_analysis_type" ToRole="tab_analysis_result" />
+          <NavigationProperty Name="tab_exam_type" Relationship="jointexamModel.analysis_vs_exam_type" FromRole="tab_analysis_type" ToRole="tab_exam_type" />
+        </EntityType>
+        <Association Name="analysisresult2type">
+          <End Type="jointexamModel.tab_analysis_type" Role="tab_analysis_type" Multiplicity="0..1" />
+          <End Type="jointexamModel.tab_analysis_result" Role="tab_analysis_result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tab_analysis_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tab_analysis_result">
+              <PropertyRef Name="analysis_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="analysis_vs_exam_type">
+          <End Type="jointexamModel.tab_exam_type" Role="tab_exam_type" Multiplicity="0..1" />
+          <End Type="jointexamModel.tab_analysis_type" Role="tab_analysis_type" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tab_exam_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tab_analysis_type">
+              <PropertyRef Name="exam_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -534,21 +538,6 @@
                 <ScalarProperty Name="degrees" ColumnName="degrees" />
                 <ScalarProperty Name="exam_record" ColumnName="exam_record" />
                 <ScalarProperty Name="analysis_type" ColumnName="analysis_type" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tab_analysis_type">
-            <EntityTypeMapping TypeName="jointexamModel.tab_analysis_type">
-              <MappingFragment StoreEntitySet="tab_analysis_type">
-                <ScalarProperty Name="reference_analysis_type" ColumnName="reference_analysis_type" />
-                <ScalarProperty Name="result_num" ColumnName="result_num" />
-                <ScalarProperty Name="ptr_order" ColumnName="ptr_order" />
-                <ScalarProperty Name="use_joints" ColumnName="use_joints" />
-                <ScalarProperty Name="exam_type" ColumnName="exam_type" />
-                <ScalarProperty Name="analysis_fun" ColumnName="analysis_fun" />
-                <ScalarProperty Name="analysis_name" ColumnName="analysis_name" />
-                <ScalarProperty Name="analysis_category" ColumnName="analysis_category" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -672,6 +661,23 @@
                 <ScalarProperty Name="birthday" ColumnName="birthday" />
                 <ScalarProperty Name="sex" ColumnName="sex" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tab_analysis_type">
+            <EntityTypeMapping TypeName="jointexamModel.tab_analysis_type">
+              <MappingFragment StoreEntitySet="tab_analysis_type">
+                <ScalarProperty Name="frames" ColumnName="frames" />
+                <ScalarProperty Name="reference_analysis_type" ColumnName="reference_analysis_type" />
+                <ScalarProperty Name="result_num" ColumnName="result_num" />
+                <ScalarProperty Name="ptr_order" ColumnName="ptr_order" />
+                <ScalarProperty Name="use_joints" ColumnName="use_joints" />
+                <ScalarProperty Name="exam_type" ColumnName="exam_type" />
+                <ScalarProperty Name="analysis_fun" ColumnName="analysis_fun" />
+                <ScalarProperty Name="analysis_name" ColumnName="analysis_name" />
+                <ScalarProperty Name="analysis_category" ColumnName="analysis_category" />
+                <ScalarProperty Name="assess_name" ColumnName="assess_name" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
