@@ -101,10 +101,13 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                     break;
                 case "检查浏览":
                     this.tcMain.SelectedIndex = 1;
-
+                    break;
+                case "分析全部":
+                    anaylisysAll();
                     break;
             }
         }
+
 
 
         private void examSearch_Loaded(object sender, RoutedEventArgs e)
@@ -283,6 +286,27 @@ namespace Microsoft.Samples.Kinect.BodyBasics
 
             }
 
+        }
+
+
+        private void anaylisysAll()
+        {
+            using (var ctx = new jointexamEntities())
+            {
+                DbSet<tab_exam> set = ctx.Set<tab_exam>();
+                List<tab_exam> list = set.SqlQuery("select * from tab_exam where analysis_flag is null").ToList();
+
+                foreach (tab_exam exam in list)
+                {
+                    JointCaculater jc = new JointCaculater();
+                    jc.analysis(exam);
+
+                    exam.analysis_flag = tab_exam.AnalysisEnd;
+                    ctx.SaveChanges();
+                }
+            }
+
+            MessageBox.Show("分析完成！");
         }
 
     }

@@ -74,7 +74,9 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
+                <!--
                 <Image Grid.Row="0" Name="camera" Width="1920" Height="1080" Source="{Binding ImageSource}"/>
+                -->
                 <Canvas Grid.Row="0" Name="canvas" Width="1920" Height="1080" />
             </Grid>
 

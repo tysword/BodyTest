@@ -16,6 +16,7 @@
             <MenuItem Header="文件" Margin="0 0 5 0">
                 <MenuItem Header="新检查" Click="MenuItem_Click"/>
                 <MenuItem Header="检查浏览" Click="MenuItem_Click"/>
+                <MenuItem Header="分析全部" Click="MenuItem_Click"/>
                 <Separator/>
                 <MenuItem Header="退出" Click="MenuItem_Click"/>
             </MenuItem>

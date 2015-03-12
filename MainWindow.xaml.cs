@@ -249,6 +249,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
         private void Reader_MultiSourceFrameArrived(object sender, MultiSourceFrameArrivedEventArgs e)
         {
             var reference = e.FrameReference.AcquireFrame();
+          
             // Color
             using (var frame = reference.ColorFrameReference.AcquireFrame())
             {

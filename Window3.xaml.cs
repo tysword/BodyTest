@@ -74,7 +74,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                 ds.EndInit();
 
 
-                DataTable dt = fillExamResult(apt.GetData(examId).First().id);
+                DataTable dt = fillExamResult(examId);
                 this._reportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSet2", dt));
                 this._reportViewer.ProcessingMode = ProcessingMode.Local;
                 _reportViewer.RefreshReport();
@@ -84,7 +84,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
 
 
 
-        private DataTable fillExamResult(int cid)
+        private DataTable fillExamResult(int examID)
         {
             MySqlConnection _connection = new MySqlConnection();
             _connection.ConnectionString = Properties.Settings.Default.jointexamConnectionString;
@@ -94,7 +94,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
             MySqlCommand cmd = new MySqlCommand(rtn, _connection);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("CCID", cid);
+            cmd.Parameters.AddWithValue("examId", examID);
 
 
             DataTable dt = new DataTable();
