@@ -404,7 +404,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.52944cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -625,7 +625,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.52944cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -846,24 +846,32 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>1.84354cm</Height>
+              <Height>1.42903cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox214">
+                    <Textbox Name="meaning">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!ascate.Value</Value>
+                              <Value>分析意义：</Value>
                               <Style>
                                 <FontFamily>新宋体</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
                             <TextRun>
-                              <Value>的风险提示：</Value>
+                              <Value>=Fields!meaning.Value</Value>
                               <Style>
                                 <FontFamily>新宋体</FontFamily>
                               </Style>
@@ -874,7 +882,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox214</rd:DefaultName>
+                      <rd:DefaultName>meaning</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -907,7 +915,6 @@
                       </Style>
                     </Textbox>
                     <ColSpan>4</ColSpan>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell />
@@ -1041,13 +1048,8 @@
                     </CellContents>
                   </TablixHeader>
                   <TablixMembers>
-                    <TablixMember>
-                      <KeepWithGroup>After</KeepWithGroup>
-                      <RepeatOnNewPage>true</RepeatOnNewPage>
-                    </TablixMember>
+                    <TablixMember />
                   </TablixMembers>
-                  <KeepWithGroup>After</KeepWithGroup>
-                  <RepeatOnNewPage>true</RepeatOnNewPage>
                 </TablixMember>
               </TablixMembers>
               <KeepWithGroup>After</KeepWithGroup>
@@ -1191,10 +1193,10 @@
                       <TablixMembers>
                         <TablixMember>
                           <Group Name="详细信息1" />
-                        </TablixMember>
-                        <TablixMember>
-                          <KeepWithGroup>After</KeepWithGroup>
-                          <RepeatOnNewPage>true</RepeatOnNewPage>
+                          <TablixMembers>
+                            <TablixMember />
+                            <TablixMember />
+                          </TablixMembers>
                         </TablixMember>
                       </TablixMembers>
                     </TablixMember>
@@ -1216,7 +1218,7 @@
         </SortExpressions>
         <Top>5.79629cm</Top>
         <Left>0.00326cm</Left>
-        <Height>3.04354cm</Height>
+        <Height>2.48792cm</Height>
         <Width>16.62335cm</Width>
         <ZIndex>7</ZIndex>
         <Style>
@@ -2279,7 +2281,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>jointexamDataSet</rd:DataSetName>
-        <rd:SchemaPath>E:\workspace\kinect\BodyBasics-WPF\jointexamDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>E:\workspace\kinect\BodyBasics-WPF\BodyTest\jointexamDataSet.xsd</rd:SchemaPath>
         <rd:TableName>ExamMaster</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -2292,40 +2294,8 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="cactionname">
-          <DataField>cactionname</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="analysis_id">
-          <DataField>analysis_id</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="acategory">
-          <DataField>acategory</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="cname">
-          <DataField>cname</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="assess_name">
-          <DataField>assess_name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="aresult">
-          <DataField>aresult</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="cnt">
-          <DataField>cnt</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ranking">
-          <DataField>ranking</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ascore">
-          <DataField>ascore</DataField>
+        <Field Name="ascate">
+          <DataField>ascate</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="score">
@@ -2336,16 +2306,12 @@
           <DataField>astype</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="asId">
-          <DataField>asId</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ascate">
-          <DataField>ascate</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="asname">
           <DataField>asname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ascore">
+          <DataField>ascore</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="asresult">
@@ -2356,10 +2322,22 @@
           <DataField>astypeid</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="asId">
+          <DataField>asId</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="acategory">
+          <DataField>acategory</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="meaning">
+          <DataField>meaning</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>jointexamDataSet</rd:DataSetName>
-        <rd:SchemaPath>E:\workspace\kinect\BodyBasics-WPF\jointexamDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>E:\workspace\kinect\BodyBasics-WPF\BodyTest\jointexamDataSet.xsd</rd:SchemaPath>
         <rd:TableName>v_tab_examanalysis</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

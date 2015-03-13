@@ -38,6 +38,8 @@ namespace Microsoft.Samples.Kinect.BodyBasics {
         
         private AnalysisTypeDataTable tableAnalysisType;
         
+        private v_tab_examanalysisDataTable tablev_tab_examanalysis;
+        
         private global::System.Data.DataRelation relationexam2person;
         
         private global::System.Data.DataRelation relationrecord2exam;
@@ -92,6 +94,9 @@ namespace Microsoft.Samples.Kinect.BodyBasics {
                 }
                 if ((ds.Tables["AnalysisType"] != null)) {
                     base.Tables.Add(new AnalysisTypeDataTable(ds.Tables["AnalysisType"]));
+                }
+                if ((ds.Tables["v_tab_examanalysis"] != null)) {
+                    base.Tables.Add(new v_tab_examanalysisDataTable(ds.Tables["v_tab_examanalysis"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -183,6 +188,16 @@ namespace Microsoft.Samples.Kinect.BodyBasics {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public v_tab_examanalysisDataTable v_tab_examanalysis {
+            get {
+                return this.tablev_tab_examanalysis;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -269,6 +284,9 @@ namespace Microsoft.Samples.Kinect.BodyBasics {
                 if ((ds.Tables["AnalysisType"] != null)) {
                     base.Tables.Add(new AnalysisTypeDataTable(ds.Tables["AnalysisType"]));
                 }
+                if ((ds.Tables["v_tab_examanalysis"] != null)) {
+                    base.Tables.Add(new v_tab_examanalysisDataTable(ds.Tables["v_tab_examanalysis"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -344,6 +362,12 @@ namespace Microsoft.Samples.Kinect.BodyBasics {
                     this.tableAnalysisType.InitVars();
                 }
             }
+            this.tablev_tab_examanalysis = ((v_tab_examanalysisDataTable)(base.Tables["v_tab_examanalysis"]));
+            if ((initTable == true)) {
+                if ((this.tablev_tab_examanalysis != null)) {
+                    this.tablev_tab_examanalysis.InitVars();
+                }
+            }
             this.relationexam2person = this.Relations["exam2person"];
             this.relationrecord2exam = this.Relations["record2exam"];
             this.relationrecord2type = this.Relations["record2type"];
@@ -371,6 +395,8 @@ namespace Microsoft.Samples.Kinect.BodyBasics {
             base.Tables.Add(this.tableExamRecord);
             this.tableAnalysisType = new AnalysisTypeDataTable();
             base.Tables.Add(this.tableAnalysisType);
+            this.tablev_tab_examanalysis = new v_tab_examanalysisDataTable();
+            base.Tables.Add(this.tablev_tab_examanalysis);
             this.relationexam2person = new global::System.Data.DataRelation("exam2person", new global::System.Data.DataColumn[] {
                         this.tabletab_person.idColumn}, new global::System.Data.DataColumn[] {
                         this.tabletab_exam.person_idColumn}, false);
@@ -424,6 +450,12 @@ namespace Microsoft.Samples.Kinect.BodyBasics {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeAnalysisType() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializev_tab_examanalysis() {
             return false;
         }
         
@@ -502,6 +534,9 @@ namespace Microsoft.Samples.Kinect.BodyBasics {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void AnalysisTypeRowChangeEventHandler(object sender, AnalysisTypeRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void v_tab_examanalysisRowChangeEventHandler(object sender, v_tab_examanalysisRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -5092,6 +5127,379 @@ namespace Microsoft.Samples.Kinect.BodyBasics {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "AnalysisTypeDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class v_tab_examanalysisDataTable : global::System.Data.TypedTableBase<v_tab_examanalysisRow> {
+            
+            private global::System.Data.DataColumn columnascate;
+            
+            private global::System.Data.DataColumn columnscore;
+            
+            private global::System.Data.DataColumn columnastype;
+            
+            private global::System.Data.DataColumn columnasname;
+            
+            private global::System.Data.DataColumn columnascore;
+            
+            private global::System.Data.DataColumn columnasresult;
+            
+            private global::System.Data.DataColumn columnastypeid;
+            
+            private global::System.Data.DataColumn columnasId;
+            
+            private global::System.Data.DataColumn columnacategory;
+            
+            private global::System.Data.DataColumn columnmeaning;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public v_tab_examanalysisDataTable() {
+                this.TableName = "v_tab_examanalysis";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal v_tab_examanalysisDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected v_tab_examanalysisDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ascateColumn {
+                get {
+                    return this.columnascate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn scoreColumn {
+                get {
+                    return this.columnscore;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn astypeColumn {
+                get {
+                    return this.columnastype;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn asnameColumn {
+                get {
+                    return this.columnasname;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ascoreColumn {
+                get {
+                    return this.columnascore;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn asresultColumn {
+                get {
+                    return this.columnasresult;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn astypeidColumn {
+                get {
+                    return this.columnastypeid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn asIdColumn {
+                get {
+                    return this.columnasId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn acategoryColumn {
+                get {
+                    return this.columnacategory;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn meaningColumn {
+                get {
+                    return this.columnmeaning;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public v_tab_examanalysisRow this[int index] {
+                get {
+                    return ((v_tab_examanalysisRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event v_tab_examanalysisRowChangeEventHandler v_tab_examanalysisRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event v_tab_examanalysisRowChangeEventHandler v_tab_examanalysisRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event v_tab_examanalysisRowChangeEventHandler v_tab_examanalysisRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event v_tab_examanalysisRowChangeEventHandler v_tab_examanalysisRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Addv_tab_examanalysisRow(v_tab_examanalysisRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public v_tab_examanalysisRow Addv_tab_examanalysisRow(string ascate, string score, string astype, string asname, string ascore, string asresult, string astypeid, string asId, string acategory, string meaning) {
+                v_tab_examanalysisRow rowv_tab_examanalysisRow = ((v_tab_examanalysisRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        ascate,
+                        score,
+                        astype,
+                        asname,
+                        ascore,
+                        asresult,
+                        astypeid,
+                        asId,
+                        acategory,
+                        meaning};
+                rowv_tab_examanalysisRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowv_tab_examanalysisRow);
+                return rowv_tab_examanalysisRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                v_tab_examanalysisDataTable cln = ((v_tab_examanalysisDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new v_tab_examanalysisDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnascate = base.Columns["ascate"];
+                this.columnscore = base.Columns["score"];
+                this.columnastype = base.Columns["astype"];
+                this.columnasname = base.Columns["asname"];
+                this.columnascore = base.Columns["ascore"];
+                this.columnasresult = base.Columns["asresult"];
+                this.columnastypeid = base.Columns["astypeid"];
+                this.columnasId = base.Columns["asId"];
+                this.columnacategory = base.Columns["acategory"];
+                this.columnmeaning = base.Columns["meaning"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnascate = new global::System.Data.DataColumn("ascate", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnascate);
+                this.columnscore = new global::System.Data.DataColumn("score", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnscore);
+                this.columnastype = new global::System.Data.DataColumn("astype", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnastype);
+                this.columnasname = new global::System.Data.DataColumn("asname", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnasname);
+                this.columnascore = new global::System.Data.DataColumn("ascore", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnascore);
+                this.columnasresult = new global::System.Data.DataColumn("asresult", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnasresult);
+                this.columnastypeid = new global::System.Data.DataColumn("astypeid", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnastypeid);
+                this.columnasId = new global::System.Data.DataColumn("asId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnasId);
+                this.columnacategory = new global::System.Data.DataColumn("acategory", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnacategory);
+                this.columnmeaning = new global::System.Data.DataColumn("meaning", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmeaning);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public v_tab_examanalysisRow Newv_tab_examanalysisRow() {
+                return ((v_tab_examanalysisRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new v_tab_examanalysisRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(v_tab_examanalysisRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.v_tab_examanalysisRowChanged != null)) {
+                    this.v_tab_examanalysisRowChanged(this, new v_tab_examanalysisRowChangeEvent(((v_tab_examanalysisRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.v_tab_examanalysisRowChanging != null)) {
+                    this.v_tab_examanalysisRowChanging(this, new v_tab_examanalysisRowChangeEvent(((v_tab_examanalysisRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.v_tab_examanalysisRowDeleted != null)) {
+                    this.v_tab_examanalysisRowDeleted(this, new v_tab_examanalysisRowChangeEvent(((v_tab_examanalysisRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.v_tab_examanalysisRowDeleting != null)) {
+                    this.v_tab_examanalysisRowDeleting(this, new v_tab_examanalysisRowChangeEvent(((v_tab_examanalysisRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Removev_tab_examanalysisRow(v_tab_examanalysisRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                jointexamDataSet ds = new jointexamDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "v_tab_examanalysisDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -10554,6 +10962,301 @@ namespace Microsoft.Samples.Kinect.BodyBasics {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class v_tab_examanalysisRow : global::System.Data.DataRow {
+            
+            private v_tab_examanalysisDataTable tablev_tab_examanalysis;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal v_tab_examanalysisRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablev_tab_examanalysis = ((v_tab_examanalysisDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ascate {
+                get {
+                    try {
+                        return ((string)(this[this.tablev_tab_examanalysis.ascateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“v_tab_examanalysis”中列“ascate”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tablev_tab_examanalysis.ascateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string score {
+                get {
+                    try {
+                        return ((string)(this[this.tablev_tab_examanalysis.scoreColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“v_tab_examanalysis”中列“score”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tablev_tab_examanalysis.scoreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string astype {
+                get {
+                    try {
+                        return ((string)(this[this.tablev_tab_examanalysis.astypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“v_tab_examanalysis”中列“astype”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tablev_tab_examanalysis.astypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string asname {
+                get {
+                    try {
+                        return ((string)(this[this.tablev_tab_examanalysis.asnameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“v_tab_examanalysis”中列“asname”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tablev_tab_examanalysis.asnameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ascore {
+                get {
+                    try {
+                        return ((string)(this[this.tablev_tab_examanalysis.ascoreColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“v_tab_examanalysis”中列“ascore”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tablev_tab_examanalysis.ascoreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string asresult {
+                get {
+                    try {
+                        return ((string)(this[this.tablev_tab_examanalysis.asresultColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“v_tab_examanalysis”中列“asresult”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tablev_tab_examanalysis.asresultColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string astypeid {
+                get {
+                    try {
+                        return ((string)(this[this.tablev_tab_examanalysis.astypeidColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“v_tab_examanalysis”中列“astypeid”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tablev_tab_examanalysis.astypeidColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string asId {
+                get {
+                    try {
+                        return ((string)(this[this.tablev_tab_examanalysis.asIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“v_tab_examanalysis”中列“asId”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tablev_tab_examanalysis.asIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string acategory {
+                get {
+                    try {
+                        return ((string)(this[this.tablev_tab_examanalysis.acategoryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“v_tab_examanalysis”中列“acategory”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tablev_tab_examanalysis.acategoryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string meaning {
+                get {
+                    try {
+                        return ((string)(this[this.tablev_tab_examanalysis.meaningColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“v_tab_examanalysis”中列“meaning”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tablev_tab_examanalysis.meaningColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsascateNull() {
+                return this.IsNull(this.tablev_tab_examanalysis.ascateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetascateNull() {
+                this[this.tablev_tab_examanalysis.ascateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsscoreNull() {
+                return this.IsNull(this.tablev_tab_examanalysis.scoreColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetscoreNull() {
+                this[this.tablev_tab_examanalysis.scoreColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsastypeNull() {
+                return this.IsNull(this.tablev_tab_examanalysis.astypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetastypeNull() {
+                this[this.tablev_tab_examanalysis.astypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsasnameNull() {
+                return this.IsNull(this.tablev_tab_examanalysis.asnameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetasnameNull() {
+                this[this.tablev_tab_examanalysis.asnameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsascoreNull() {
+                return this.IsNull(this.tablev_tab_examanalysis.ascoreColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetascoreNull() {
+                this[this.tablev_tab_examanalysis.ascoreColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsasresultNull() {
+                return this.IsNull(this.tablev_tab_examanalysis.asresultColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetasresultNull() {
+                this[this.tablev_tab_examanalysis.asresultColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsastypeidNull() {
+                return this.IsNull(this.tablev_tab_examanalysis.astypeidColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetastypeidNull() {
+                this[this.tablev_tab_examanalysis.astypeidColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsasIdNull() {
+                return this.IsNull(this.tablev_tab_examanalysis.asIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetasIdNull() {
+                this[this.tablev_tab_examanalysis.asIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsacategoryNull() {
+                return this.IsNull(this.tablev_tab_examanalysis.acategoryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetacategoryNull() {
+                this[this.tablev_tab_examanalysis.acategoryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsmeaningNull() {
+                return this.IsNull(this.tablev_tab_examanalysis.meaningColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetmeaningNull() {
+                this[this.tablev_tab_examanalysis.meaningColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -10777,6 +11480,40 @@ namespace Microsoft.Samples.Kinect.BodyBasics {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public AnalysisTypeRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class v_tab_examanalysisRowChangeEvent : global::System.EventArgs {
+            
+            private v_tab_examanalysisRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public v_tab_examanalysisRowChangeEvent(v_tab_examanalysisRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public v_tab_examanalysisRow Row {
                 get {
                     return this.eventRow;
                 }

@@ -1341,6 +1341,22 @@ ORDER BY tab_exam_type.`order`, tab_analysis_type.ptr_order</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="v_tab_examanalysis" msprop:Generator_TableClassName="v_tab_examanalysisDataTable" msprop:Generator_TableVarName="tablev_tab_examanalysis" msprop:Generator_RowChangedName="v_tab_examanalysisRowChanged" msprop:Generator_TablePropName="v_tab_examanalysis" msprop:Generator_RowDeletingName="v_tab_examanalysisRowDeleting" msprop:Generator_RowChangingName="v_tab_examanalysisRowChanging" msprop:Generator_RowEvHandlerName="v_tab_examanalysisRowChangeEventHandler" msprop:Generator_RowDeletedName="v_tab_examanalysisRowDeleted" msprop:Generator_RowClassName="v_tab_examanalysisRow" msprop:Generator_UserTableName="v_tab_examanalysis" msprop:Generator_RowEvArgName="v_tab_examanalysisRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ascate" msprop:Generator_ColumnVarNameInTable="columnascate" msprop:Generator_ColumnPropNameInRow="ascate" msprop:Generator_ColumnPropNameInTable="ascateColumn" msprop:Generator_UserColumnName="ascate" type="xs:string" minOccurs="0" />
+              <xs:element name="score" msprop:Generator_ColumnVarNameInTable="columnscore" msprop:Generator_ColumnPropNameInRow="score" msprop:Generator_ColumnPropNameInTable="scoreColumn" msprop:Generator_UserColumnName="score" type="xs:string" minOccurs="0" />
+              <xs:element name="astype" msprop:Generator_ColumnVarNameInTable="columnastype" msprop:Generator_ColumnPropNameInRow="astype" msprop:Generator_ColumnPropNameInTable="astypeColumn" msprop:Generator_UserColumnName="astype" type="xs:string" minOccurs="0" />
+              <xs:element name="asname" msprop:Generator_ColumnVarNameInTable="columnasname" msprop:Generator_ColumnPropNameInRow="asname" msprop:Generator_ColumnPropNameInTable="asnameColumn" msprop:Generator_UserColumnName="asname" type="xs:string" minOccurs="0" />
+              <xs:element name="ascore" msprop:Generator_ColumnVarNameInTable="columnascore" msprop:Generator_ColumnPropNameInRow="ascore" msprop:Generator_ColumnPropNameInTable="ascoreColumn" msprop:Generator_UserColumnName="ascore" type="xs:string" minOccurs="0" />
+              <xs:element name="asresult" msprop:Generator_ColumnVarNameInTable="columnasresult" msprop:Generator_ColumnPropNameInRow="asresult" msprop:Generator_ColumnPropNameInTable="asresultColumn" msprop:Generator_UserColumnName="asresult" type="xs:string" minOccurs="0" />
+              <xs:element name="astypeid" msprop:Generator_ColumnVarNameInTable="columnastypeid" msprop:Generator_ColumnPropNameInRow="astypeid" msprop:Generator_ColumnPropNameInTable="astypeidColumn" msprop:Generator_UserColumnName="astypeid" type="xs:string" minOccurs="0" />
+              <xs:element name="asId" msprop:Generator_ColumnVarNameInTable="columnasId" msprop:Generator_ColumnPropNameInRow="asId" msprop:Generator_ColumnPropNameInTable="asIdColumn" msprop:Generator_UserColumnName="asId" type="xs:string" minOccurs="0" />
+              <xs:element name="acategory" msprop:Generator_ColumnVarNameInTable="columnacategory" msprop:Generator_ColumnPropNameInRow="acategory" msprop:Generator_ColumnPropNameInTable="acategoryColumn" msprop:Generator_UserColumnName="acategory" type="xs:string" minOccurs="0" />
+              <xs:element name="meaning" msprop:Generator_ColumnVarNameInTable="columnmeaning" msprop:Generator_ColumnPropNameInRow="meaning" msprop:Generator_ColumnPropNameInTable="meaningColumn" msprop:Generator_UserColumnName="meaning" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
