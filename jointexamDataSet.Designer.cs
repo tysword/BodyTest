@@ -5194,6 +5194,10 @@ namespace Microsoft.Samples.Kinect.BodyBasics {
             
             private global::System.Data.DataColumn columnmeaning;
             
+            private global::System.Data.DataColumn columnascode;
+            
+            private global::System.Data.DataColumn columnaetype;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public v_tab_examanalysisDataTable() {
@@ -5309,6 +5313,22 @@ namespace Microsoft.Samples.Kinect.BodyBasics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ascodeColumn {
+                get {
+                    return this.columnascode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn aetypeColumn {
+                get {
+                    return this.columnaetype;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5344,7 +5364,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public v_tab_examanalysisRow Addv_tab_examanalysisRow(string ascate, string score, string astype, string asname, string ascore, string asresult, string astypeid, string asId, string acategory, string meaning) {
+            public v_tab_examanalysisRow Addv_tab_examanalysisRow(string ascate, string score, string astype, string asname, string ascore, string asresult, string astypeid, string asId, string acategory, string meaning, string ascode, string aetype) {
                 v_tab_examanalysisRow rowv_tab_examanalysisRow = ((v_tab_examanalysisRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ascate,
@@ -5356,7 +5376,9 @@ namespace Microsoft.Samples.Kinect.BodyBasics {
                         astypeid,
                         asId,
                         acategory,
-                        meaning};
+                        meaning,
+                        ascode,
+                        aetype};
                 rowv_tab_examanalysisRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowv_tab_examanalysisRow);
                 return rowv_tab_examanalysisRow;
@@ -5389,6 +5411,8 @@ namespace Microsoft.Samples.Kinect.BodyBasics {
                 this.columnasId = base.Columns["asId"];
                 this.columnacategory = base.Columns["acategory"];
                 this.columnmeaning = base.Columns["meaning"];
+                this.columnascode = base.Columns["ascode"];
+                this.columnaetype = base.Columns["aetype"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5414,6 +5438,10 @@ namespace Microsoft.Samples.Kinect.BodyBasics {
                 base.Columns.Add(this.columnacategory);
                 this.columnmeaning = new global::System.Data.DataColumn("meaning", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmeaning);
+                this.columnascode = new global::System.Data.DataColumn("ascode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnascode);
+                this.columnaetype = new global::System.Data.DataColumn("aetype", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnaetype);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11137,6 +11165,38 @@ namespace Microsoft.Samples.Kinect.BodyBasics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ascode {
+                get {
+                    try {
+                        return ((string)(this[this.tablev_tab_examanalysis.ascodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“v_tab_examanalysis”中列“ascode”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tablev_tab_examanalysis.ascodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string aetype {
+                get {
+                    try {
+                        return ((string)(this[this.tablev_tab_examanalysis.aetypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“v_tab_examanalysis”中列“aetype”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tablev_tab_examanalysis.aetypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsascateNull() {
                 return this.IsNull(this.tablev_tab_examanalysis.ascateColumn);
             }
@@ -11253,6 +11313,30 @@ namespace Microsoft.Samples.Kinect.BodyBasics {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetmeaningNull() {
                 this[this.tablev_tab_examanalysis.meaningColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsascodeNull() {
+                return this.IsNull(this.tablev_tab_examanalysis.ascodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetascodeNull() {
+                this[this.tablev_tab_examanalysis.ascodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsaetypeNull() {
+                return this.IsNull(this.tablev_tab_examanalysis.aetypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetaetypeNull() {
+                this[this.tablev_tab_examanalysis.aetypeColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -171,7 +171,7 @@
                             <DataGridTextColumn Header="测试年龄" Width="60" Binding="{Binding exam_age}"/>
                             <DataGridTextColumn Header="完成状态" Width="60" Binding="{Binding finish_flag}"/>
                             <DataGridTextColumn Header="完成状态" Width="60" Binding="{Binding analysis_flag}"/>
-                            <DataGridTextColumn Header="操作者" Width="100" Binding="{Binding operater}"/>
+                            <DataGridTextColumn Header="操作者" Width="80" Binding="{Binding operater}"/>
                             <DataGridTemplateColumn Header="其他" Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>

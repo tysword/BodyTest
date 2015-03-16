@@ -9,7 +9,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>人体骨骼及关节活动状况评估表</Value>
+                <Value>人体活动形态评估表</Value>
                 <Style>
                   <FontFamily>新宋体</FontFamily>
                   <FontSize>24pt</FontSize>
@@ -79,7 +79,7 @@
         <rd:DefaultName>Textbox4</rd:DefaultName>
         <Top>1.49076cm</Top>
         <Left>0.0034cm</Left>
-        <Height>0.99688cm</Height>
+        <Height>1.25292cm</Height>
         <Width>2.57056cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
@@ -106,7 +106,7 @@
             <Style>Solid</Style>
             <Width>1pt</Width>
           </RightBorder>
-          <VerticalAlign>Bottom</VerticalAlign>
+          <VerticalAlign>Middle</VerticalAlign>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -135,7 +135,7 @@
         <rd:DefaultName>Textbox6</rd:DefaultName>
         <Top>1.49076cm</Top>
         <Left>10.21507cm</Left>
-        <Height>0.99688cm</Height>
+        <Height>0.65292cm</Height>
         <Width>2.23605cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
@@ -189,7 +189,7 @@
         <rd:DefaultName>Textbox7</rd:DefaultName>
         <Top>1.49076cm</Top>
         <Left>12.45112cm</Left>
-        <Height>0.99688cm</Height>
+        <Height>0.65292cm</Height>
         <Width>4.17522cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
@@ -230,8 +230,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>北京北医三院上地健康管理中心  
-赵之心运动健康工作室</Value>
+                <Value>北京北医三院上地健康管理中心</Value>
                 <Style>
                   <FontFamily>新宋体</FontFamily>
                   <FontSize>12pt</FontSize>
@@ -244,7 +243,7 @@
         <rd:DefaultName>Textbox8</rd:DefaultName>
         <Top>1.49076cm</Top>
         <Left>2.57396cm</Left>
-        <Height>0.99688cm</Height>
+        <Height>0.65292cm</Height>
         <Width>7.64111cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
@@ -296,9 +295,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>2.48764cm</Top>
+        <Top>2.74368cm</Top>
         <Left>0.0034cm</Left>
-        <Height>1.00141cm</Height>
+        <Height>1.06287cm</Height>
         <Width>16.62294cm</Width>
         <ZIndex>5</ZIndex>
         <Style>
@@ -339,7 +338,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>二、姿态评估</Value>
+                <Value>二、姿态评估说明</Value>
                 <Style>
                   <FontFamily>新宋体</FontFamily>
                   <FontSize>14pt</FontSize>
@@ -350,7 +349,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>4.68905cm</Top>
+        <Top>5.00655cm</Top>
         <Left>0.00326cm</Left>
         <Height>1.10724cm</Height>
         <Width>16.62294cm</Width>
@@ -390,21 +389,21 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>5.57773cm</Width>
+              <Width>3.43461cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.71916cm</Width>
+              <Width>2.75103cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.85147cm</Width>
+              <Width>2.50029cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.00688cm</Width>
+              <Width>2.47257cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.52944cm</Height>
+              <Height>0.71465cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -415,7 +414,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>评估名称</Value>
+                              <Value>评估内容</Value>
                               <Style>
                                 <FontFamily>新宋体</FontFamily>
                               </Style>
@@ -458,18 +457,27 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <ColSpan>4</ColSpan>
                   </CellContents>
                 </TablixCell>
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.60882cm</Height>
+              <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox60">
+                    <Textbox Name="Textbox12">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>测试结果</Value>
+                              <Value>评估项目</Value>
                               <Style>
                                 <FontFamily>新宋体</FontFamily>
                               </Style>
@@ -480,7 +488,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox60</rd:DefaultName>
+                      <rd:DefaultName>Textbox12</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -505,7 +513,7 @@
                           <Style>Solid</Style>
                           <Width>1pt</Width>
                         </RightBorder>
-                        <VerticalAlign>Middle</VerticalAlign>
+                        <VerticalAlign>Bottom</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -516,7 +524,61 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox62">
+                    <Textbox Name="Textbox13">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>评估结果</Value>
+                              <Style>
+                                <FontFamily>新宋体</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox13</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
+                        <TopBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </RightBorder>
+                        <VerticalAlign>Bottom</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox14">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -534,7 +596,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox62</rd:DefaultName>
+                      <rd:DefaultName>Textbox14</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -559,7 +621,7 @@
                           <Style>Solid</Style>
                           <Width>1pt</Width>
                         </RightBorder>
-                        <VerticalAlign>Middle</VerticalAlign>
+                        <VerticalAlign>Bottom</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -570,7 +632,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox64">
+                    <Textbox Name="Textbox15">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -588,7 +650,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox64</rd:DefaultName>
+                      <rd:DefaultName>Textbox15</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -613,7 +675,7 @@
                           <Style>Solid</Style>
                           <Width>1pt</Width>
                         </RightBorder>
-                        <VerticalAlign>Middle</VerticalAlign>
+                        <VerticalAlign>Bottom</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -625,29 +687,29 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.52944cm</Height>
+              <Height>0.65292cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="assess_name">
+                    <Textbox Name="ascode">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!asname.Value</Value>
+                              <Value>=Fields!ascode.Value</Value>
                               <Style>
                                 <FontFamily>新宋体</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Left</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>assess_name</rd:DefaultName>
+                      <rd:DefaultName>ascode</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -857,26 +919,14 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>分析意义：</Value>
-                              <Style>
-                                <FontFamily>新宋体</FontFamily>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
                               <Value>=Fields!meaning.Value</Value>
+                              <MarkupType>HTML</MarkupType>
                               <Style>
                                 <FontFamily>新宋体</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
+                          <HangingIndent>20pt</HangingIndent>
                           <Style>
                             <TextAlign>Left</TextAlign>
                           </Style>
@@ -887,31 +937,11 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </RightBorder>
                         <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>1pt</PaddingRight>
+                        <PaddingTop>1pt</PaddingTop>
+                        <PaddingBottom>1pt</PaddingBottom>
                       </Style>
                     </Textbox>
                     <ColSpan>4</ColSpan>
@@ -938,7 +968,7 @@
               <TablixHeader>
                 <Size>2.5cm</Size>
                 <CellContents>
-                  <Textbox Name="Textbox240">
+                  <Textbox Name="Textbox41">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
@@ -956,7 +986,7 @@
                         </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Textbox240</rd:DefaultName>
+                    <rd:DefaultName>Textbox41</rd:DefaultName>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -1052,31 +1082,29 @@
                   </TablixMembers>
                 </TablixMember>
               </TablixMembers>
-              <KeepWithGroup>After</KeepWithGroup>
-              <RepeatOnNewPage>true</RepeatOnNewPage>
             </TablixMember>
             <TablixMember>
-              <Group Name="astype">
+              <Group Name="aetype">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!astype.Value</GroupExpression>
+                  <GroupExpression>=Fields!aetype.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
               <SortExpressions>
                 <SortExpression>
-                  <Value>=Fields!astypeid.Value</Value>
+                  <Value>=Fields!asId.Value</Value>
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
                 <Size>2.5cm</Size>
                 <CellContents>
-                  <Textbox Name="astype">
+                  <Textbox Name="aetype">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=Fields!astype.Value</Value>
+                            <Value>=Fields!aetype.Value</Value>
                             <Style>
                               <FontFamily>新宋体</FontFamily>
                             </Style>
@@ -1087,7 +1115,7 @@
                         </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>astype</rd:DefaultName>
+                    <rd:DefaultName>aetype</rd:DefaultName>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -1196,6 +1224,7 @@
                           <TablixMembers>
                             <TablixMember />
                             <TablixMember />
+                            <TablixMember />
                           </TablixMembers>
                         </TablixMember>
                       </TablixMembers>
@@ -1211,15 +1240,9 @@
         <FixedColumnHeaders>true</FixedColumnHeaders>
         <FixedRowHeaders>true</FixedRowHeaders>
         <DataSetName>DataSet2</DataSetName>
-        <SortExpressions>
-          <SortExpression>
-            <Value>=Fields!asId.Value</Value>
-          </SortExpression>
-        </SortExpressions>
-        <Top>5.79629cm</Top>
-        <Left>0.00326cm</Left>
-        <Height>2.48792cm</Height>
-        <Width>16.62335cm</Width>
+        <Top>10.25845cm</Top>
+        <Height>3.40542cm</Height>
+        <Width>16.62661cm</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
@@ -1266,7 +1289,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>name</rd:DefaultName>
-        <Top>3.48905cm</Top>
+        <Top>3.80655cm</Top>
         <Left>2.06306cm</Left>
         <Height>0.6cm</Height>
         <Width>2.07744cm</Width>
@@ -1321,7 +1344,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>sex1</rd:DefaultName>
-        <Top>3.48905cm</Top>
+        <Top>3.80655cm</Top>
         <Left>6.21795cm</Left>
         <Height>0.6cm</Height>
         <Width>2.07744cm</Width>
@@ -1364,7 +1387,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!height.Value, "DataSet1")</Value>
+                <Value>=Sum(Fields!height.Value, "DataSet1") &amp; "cm"</Value>
                 <Style>
                   <FontFamily>新宋体</FontFamily>
                 </Style>
@@ -1376,7 +1399,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>height1</rd:DefaultName>
-        <Top>4.08905cm</Top>
+        <Top>4.40655cm</Top>
         <Left>6.21781cm</Left>
         <Height>0.6cm</Height>
         <Width>2.07744cm</Width>
@@ -1419,7 +1442,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!weight.Value, "DataSet1")</Value>
+                <Value>=Sum(Fields!weight.Value, "DataSet1") &amp; "kg"</Value>
                 <Style>
                   <FontFamily>新宋体</FontFamily>
                 </Style>
@@ -1431,7 +1454,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>weight1</rd:DefaultName>
-        <Top>4.08905cm</Top>
+        <Top>4.40655cm</Top>
         <Left>10.37284cm</Left>
         <Height>0.6cm</Height>
         <Width>2.07744cm</Width>
@@ -1486,7 +1509,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>exam_age1</rd:DefaultName>
-        <Top>3.48905cm</Top>
+        <Top>3.80655cm</Top>
         <Left>10.37284cm</Left>
         <Height>0.6cm</Height>
         <Width>2.07744cm</Width>
@@ -1541,9 +1564,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>operater1</rd:DefaultName>
-        <Top>3.48905cm</Top>
+        <Top>3.80655cm</Top>
         <Left>14.52772cm</Left>
-        <Height>0.6cm</Height>
+        <Height>1.2cm</Height>
         <Width>2.09889cm</Width>
         <ZIndex>13</ZIndex>
         <Style>
@@ -1570,7 +1593,7 @@
             <Style>Solid</Style>
             <Width>1pt</Width>
           </RightBorder>
-          <VerticalAlign>Bottom</VerticalAlign>
+          <VerticalAlign>Middle</VerticalAlign>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -1596,121 +1619,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>race1</rd:DefaultName>
-        <Top>4.08905cm</Top>
+        <Top>4.40655cm</Top>
         <Left>2.06293cm</Left>
         <Height>0.6cm</Height>
         <Width>2.07744cm</Width>
         <ZIndex>14</ZIndex>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-          <TopBorder>
-            <Color>Black</Color>
-            <Style>Solid</Style>
-            <Width>1pt</Width>
-          </TopBorder>
-          <BottomBorder>
-            <Color>Black</Color>
-            <Style>Solid</Style>
-            <Width>1pt</Width>
-          </BottomBorder>
-          <LeftBorder>
-            <Color>Black</Color>
-            <Style>Solid</Style>
-            <Width>1pt</Width>
-          </LeftBorder>
-          <RightBorder>
-            <Color>Black</Color>
-            <Style>Solid</Style>
-            <Width>1pt</Width>
-          </RightBorder>
-          <VerticalAlign>Bottom</VerticalAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox146">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value />
-                <Style>
-                  <FontFamily>新宋体</FontFamily>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox146</rd:DefaultName>
-        <Top>4.08905cm</Top>
-        <Left>12.45028cm</Left>
-        <Height>0.6cm</Height>
-        <Width>2.07744cm</Width>
-        <ZIndex>15</ZIndex>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-          <TopBorder>
-            <Color>Black</Color>
-            <Style>Solid</Style>
-            <Width>1pt</Width>
-          </TopBorder>
-          <BottomBorder>
-            <Color>Black</Color>
-            <Style>Solid</Style>
-            <Width>1pt</Width>
-          </BottomBorder>
-          <LeftBorder>
-            <Color>Black</Color>
-            <Style>Solid</Style>
-            <Width>1pt</Width>
-          </LeftBorder>
-          <RightBorder>
-            <Color>Black</Color>
-            <Style>Solid</Style>
-            <Width>1pt</Width>
-          </RightBorder>
-          <VerticalAlign>Bottom</VerticalAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox147">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value />
-                <Style>
-                  <FontFamily>新宋体</FontFamily>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox147</rd:DefaultName>
-        <Top>4.08905cm</Top>
-        <Left>14.52772cm</Left>
-        <Height>0.6cm</Height>
-        <Width>2.09889cm</Width>
-        <ZIndex>16</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1761,11 +1674,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox148</rd:DefaultName>
-        <Top>3.48905cm</Top>
+        <Top>3.80655cm</Top>
         <Left>0.00326cm</Left>
         <Height>0.6cm</Height>
         <Width>2.0598cm</Width>
-        <ZIndex>17</ZIndex>
+        <ZIndex>15</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1816,11 +1729,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox149</rd:DefaultName>
-        <Top>4.08905cm</Top>
+        <Top>4.40655cm</Top>
         <Left>0.00326cm</Left>
         <Height>0.6cm</Height>
         <Width>2.05967cm</Width>
-        <ZIndex>18</ZIndex>
+        <ZIndex>16</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1871,11 +1784,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox150</rd:DefaultName>
-        <Top>3.48905cm</Top>
+        <Top>3.80655cm</Top>
         <Left>4.14037cm</Left>
         <Height>0.6cm</Height>
         <Width>2.07744cm</Width>
-        <ZIndex>19</ZIndex>
+        <ZIndex>17</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1926,11 +1839,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox151</rd:DefaultName>
-        <Top>4.08905cm</Top>
+        <Top>4.40655cm</Top>
         <Left>4.14037cm</Left>
         <Height>0.6cm</Height>
         <Width>2.07744cm</Width>
-        <ZIndex>20</ZIndex>
+        <ZIndex>18</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1981,11 +1894,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox152</rd:DefaultName>
-        <Top>4.08905cm</Top>
+        <Top>4.40655cm</Top>
         <Left>8.29539cm</Left>
         <Height>0.6cm</Height>
         <Width>2.07744cm</Width>
-        <ZIndex>21</ZIndex>
+        <ZIndex>19</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -2036,11 +1949,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox153</rd:DefaultName>
-        <Top>3.48905cm</Top>
+        <Top>3.80655cm</Top>
         <Left>8.29539cm</Left>
         <Height>0.6cm</Height>
         <Width>2.07744cm</Width>
-        <ZIndex>22</ZIndex>
+        <ZIndex>20</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -2091,10 +2004,130 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox154</rd:DefaultName>
-        <Top>3.48905cm</Top>
+        <Top>3.80655cm</Top>
         <Left>12.45028cm</Left>
-        <Height>0.6cm</Height>
+        <Height>1.2cm</Height>
         <Width>2.07744cm</Width>
+        <ZIndex>21</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <TopBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </TopBorder>
+          <BottomBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </BottomBorder>
+          <LeftBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </LeftBorder>
+          <RightBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </RightBorder>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox33">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>1、对称结构：人体正面呈现以脊柱为中心轴，四肢成左右对称的基本结构；
+2、重力作用：在重力作用下，人体左右关节连线与地平线处于平行状态；
+3、人体重心：人体以脊柱为中心线，通常动作人体重心必落于此线上；
+4、人体差异：由于人体骨骼的生长发育差异、疾病病变差异、退行性差异、肌肉力量差异等会使每个个体的测量值与理想状态下的标准值产生偏差，而分析这种偏差正是发现问题的所在；
+5、统计规律：不同人群中（包括年龄、性别、人种、职业等）的都有其职业特征，并表现在所测量的数据上。
+6、状态干预：超过正常认定的标准值，可表明被测者的测试数据反映其过去、现在和未来的健康问题，建议给予干预。
+
+</Value>
+                <Style>
+                  <FontFamily>宋体</FontFamily>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>本评估报告基于统计，并对评估结果给予在健康相关方面的说明，但评估结果不作为诊断依据。</Value>
+                <Style>
+                  <FontFamily>宋体</FontFamily>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox33</rd:DefaultName>
+        <Top>6.11379cm</Top>
+        <Left>0.00367cm</Left>
+        <Height>4.14466cm</Height>
+        <Width>16.62294cm</Width>
+        <ZIndex>22</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <TopBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </TopBorder>
+          <BottomBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </BottomBorder>
+          <LeftBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </LeftBorder>
+          <RightBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </RightBorder>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>5pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox34">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>赵之心运动健康工作室</Value>
+                <Style>
+                  <FontFamily>新宋体</FontFamily>
+                  <FontSize>12pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox34</rd:DefaultName>
+        <Top>2.14368cm</Top>
+        <Left>2.57396cm</Left>
+        <Height>0.6cm</Height>
+        <Width>7.64111cm</Width>
         <ZIndex>23</ZIndex>
         <Style>
           <Border>
@@ -2120,7 +2153,113 @@
             <Style>Solid</Style>
             <Width>1pt</Width>
           </RightBorder>
-          <VerticalAlign>Bottom</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox35">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>评估层级</Value>
+                <Style>
+                  <FontFamily>新宋体</FontFamily>
+                  <FontSize>12pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox35</rd:DefaultName>
+        <Top>2.14368cm</Top>
+        <Left>10.21507cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.23605cm</Width>
+        <ZIndex>24</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <TopBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </TopBorder>
+          <BottomBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </BottomBorder>
+          <LeftBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </LeftBorder>
+          <RightBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </RightBorder>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox36">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value> A01</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox36</rd:DefaultName>
+        <Top>2.14368cm</Top>
+        <Left>12.45112cm</Left>
+        <Height>0.6cm</Height>
+        <Width>4.17549cm</Width>
+        <ZIndex>25</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <TopBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </TopBorder>
+          <BottomBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </BottomBorder>
+          <LeftBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </LeftBorder>
+          <RightBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </RightBorder>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -2128,7 +2267,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>3.487in</Height>
+    <Height>5.60661in</Height>
     <Style>
       <Border>
         <Style>None</Style>
@@ -2138,7 +2277,7 @@
   <Width>6.54591in</Width>
   <Page>
     <PageFooter>
-      <Height>1.15901cm</Height>
+      <Height>1.13255cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -2332,6 +2471,14 @@
         </Field>
         <Field Name="meaning">
           <DataField>meaning</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ascode">
+          <DataField>ascode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="aetype">
+          <DataField>aetype</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
