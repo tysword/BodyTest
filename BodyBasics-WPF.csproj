@@ -203,7 +203,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="150312091817.psc" />
     <None Include="jointexamDataSet.xsc">
       <DependentUpon>jointexamDataSet.xsd</DependentUpon>
     </None>
@@ -234,6 +233,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="人体活动形态评估表150316.psc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -250,6 +250,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BodyBasics-WPF.sln" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
